@@ -4,7 +4,8 @@
   "description": "responsive <img> tag with cleaner srcset/sizes interface.",
   "main": "src/responsive_img.jsx",
   "scripts": {
-    "test": "$(npm bin)/mocha --opts spec/mocha.opts  spec/**/*.spec.jsx"
+    "test": "$(npm bin)/mocha --opts spec/mocha.opts  spec/**/*.spec.jsx",
+    "lint": "$(npm bin)/eslint src/**/*.jsx"
   },
   "repository": {
     "type": "git",
@@ -26,10 +27,15 @@
     "babel-preset-power-assert": "^1.0.0",
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.18.0",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
+    "power-assert": "^1.4.2",
     "mocha": "^3.2.0"
   },
   "dependencies": {
-    "power-assert": "^1.4.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   }
