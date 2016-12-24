@@ -1,25 +1,48 @@
 import React from 'react';
 
+const srcSetShape = React.PropTypes.array(React.PropTypes.shape({
+  descriptor: React.PropTypes.string.isRequired,
+  src: React.PropTypes.string.isRequired,
+}));
+
+export const propsShape = {
+  alt: React.PropTypes.string.isRequired,
+  className: React.PropTypes.string,
+  widthDescriptor: React.PropTypes.shape({
+    srcSet: srcSetShape,
+    sizes: React.PropTypes.array(React.PropTypes.shape({
+      size: React.PropTypes.string.isRequired,
+      mediaCondition: React.PropTypes.string,
+    })),
+  }),
+  pixelDescriptor: React.PropTypes.shape({
+    srcSet: srcSetShape,
+  }),
+};
+
 export default class ResponsiveImg extends React.Component {
   static get propTypes() {
-    return {
-      alt: React.PropTypes.string.isRequired,
-      srcSet: React.PropTypes.shape({
-        '1x': React.PropTypes.string.isRequired,
-        '2x': React.PropTypes.string.isRequired,
-      }),
-      className: React.PropTypes.string,
-    };
+    return propsShape;
   }
 
   getSrc() {
-    return this.props.srcSet['1x'];
+    if (this.props.pixelDescriptor) {
+      return this.props.pixelDescriptor.srcSet[0].src;
+    } else if (this.props.widthDescriptor) {
+      return this.props.widthDescriptor.srcSet[0].src;
+    }
   }
 
   buildSrcSet() {
-    return Object.keys(this.props.srcSet).map(size => {
-      return `${this.props.srcSet[size]} ${size}`;
-    });
+    if (this.props.pixelDescriptor) {
+      return this.props.pixelDescriptor.srcSet.map(srcSet => {
+        return `${srcSet.src} ${srcSet.descriptor}`;
+      });
+    } else if (this.props.widthDescriptor) {
+      return this.props.widthDescriptor.srcSet.map(srcSet => {
+        return `${srcSet.src} ${srcSet.descriptor}`;
+      });
+    }
   }
 
   render() {
