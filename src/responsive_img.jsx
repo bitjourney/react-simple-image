@@ -28,7 +28,9 @@ export default class ResponsiveImg extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      descriptor: this.props.widthDescriptor ? this.props.widthDescriptor : this.props.pixelDescriptor,
+      descriptor: this.props.widthDescriptor
+        ? this.props.widthDescriptor
+        : this.props.pixelDescriptor,
     };
   }
 
@@ -45,11 +47,11 @@ export default class ResponsiveImg extends React.Component {
       return this.props.widthDescriptor.sizes.map((size) => {
         if (size.mediaCondition) {
           return `${size.mediaCondition} ${size.size}`;
-        } else {
-          return `${size.size}`;
         }
+        return `${size.size}`;
       });
     }
+    return '';
   }
 
   render() {
