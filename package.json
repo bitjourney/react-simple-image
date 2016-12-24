@@ -1,0 +1,22 @@
+{
+  "name": "react-responsive-img",
+  "version": "0.1.0",
+  "description": "responsive <img> tag with cleaner srcset/sizes interface.",
+  "main": "src/responsive_img.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitjourney/react-responsive-img.git"
+  },
+  "keywords": [
+    "HTML5"
+  ],
+  "author": "kenju",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/bitjourney/react-responsive-img/issues"
+  },
+  "homepage": "https://github.com/bitjourney/react-responsive-img#readme"
+}
