@@ -55,11 +55,12 @@ export default class ResponsiveImg extends React.Component {
 
   render() {
     return (
-      <img alt={this.props.alt}
-           className={this.props.className}
-           src={this.getSrc()}
-           srcSet={this.buildSrcSet()}
-           sizes={this.buildSizes()}
+      <img
+        alt={this.props.alt}
+        className={this.props.className}
+        src={this.getSrc()}
+        srcSet={this.buildSrcSet()}
+        sizes={this.buildSizes()}
       />
     );
   }
