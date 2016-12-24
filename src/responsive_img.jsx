@@ -64,7 +64,7 @@ export default class ResponsiveImg extends React.Component {
            src={this.getSrc()}
            srcSet={this.buildSrcSet()}
            sizes={this.buildSizes()}
-           />
+      />
     );
   }
 }
