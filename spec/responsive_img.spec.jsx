@@ -69,22 +69,26 @@ describe('ResponsiveImg', () => {
   });
 
   describe('with both widthDescriptor and pixelDescriptor', () => {
-    it('should throw error', () => {
+    it('should renders widthDescriptor over pixelDescriptor', () => {
       const props = {
-        alt: 'foo',
-        pixelDescriptor: {
-          srcSet: [
-            {descriptor: '1x', src: 'example.svg'}
-          ],
-        },
+        alt: 'example',
         widthDescriptor: {
           srcSet: [
             {descriptor: '360w', src: 'example-small.svg',}
           ],
         },
+        pixelDescriptor: {
+          srcSet: [
+            {descriptor: '1x', src: 'example.svg'}
+          ],
+        },
       };
       const html = renderToString(createElement(ResponsiveImg, props));
-      // TODO: add test to catch console warning
+      assert(html.startsWith('<img'));
+      assert(html.includes(' alt="example" '));
+      assert(html.includes(' src="example-small.svg" '));
+      assert(html.includes(' srcset="example-small.svg 360w" '));
+      assert(!html.includes(' srcset="example.svg 1x,example@2x.svg 2x" '));
     });
   });
 });
