@@ -69,7 +69,7 @@ describe('ResponsiveImg', () => {
     });
   });
 
-  desribe('with both widthDescriptor and pixelDescriptor', () => {
+  describe('with both widthDescriptor and pixelDescriptor', () => {
     it('should throw error', () => {
       const props = {
         alt: 'foo',
