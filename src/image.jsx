@@ -22,7 +22,7 @@ export const propsShape = {
   }),
 };
 
-export default class Img extends React.Component {
+export default class Image extends React.Component {
   static get propTypes() {
     return propsShape;
   }
