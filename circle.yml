@@ -1,0 +1,3 @@
+test:
+  override:
+    - yarnpkg test
