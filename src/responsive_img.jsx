@@ -25,20 +25,19 @@ export default class ResponsiveImg extends React.Component {
     return propsShape;
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      descriptor: this.props.widthDescriptor ? this.props.widthDescriptor : this.props.pixelDescriptor,
+    };
+  }
+
   getSrc() {
-    if (this.props.widthDescriptor) {
-      return this.props.widthDescriptor.srcSet[0].src;
-    } else if (this.props.pixelDescriptor) {
-      return this.props.pixelDescriptor.srcSet[0].src;
-    }
+    return this.state.descriptor.srcSet[0].src;
   }
 
   buildSrcSet() {
-    if (this.props.widthDescriptor) {
-      return this.props.widthDescriptor.srcSet.map(srcSet => `${srcSet.src} ${srcSet.descriptor}`);
-    } else if (this.props.pixelDescriptor) {
-      return this.props.pixelDescriptor.srcSet.map(srcSet => `${srcSet.src} ${srcSet.descriptor}`);
-    }
+    return this.state.descriptor.srcSet.map(srcSet => `${srcSet.src} ${srcSet.descriptor}`);
   }
 
   buildSizes() {
