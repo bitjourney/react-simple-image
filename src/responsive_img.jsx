@@ -45,12 +45,22 @@ export default class ResponsiveImg extends React.Component {
     }
   }
 
+  buildSizes() {
+    if (this.props.widthDescriptor) {
+      return this.props.widthDescriptor.sizes.map(size => {
+        return `${size.size} ${size.mediaCondition}`;
+      });
+    }
+  }
+
   render() {
     return (
       <img alt={this.props.alt}
+           className={this.props.className}
            src={this.getSrc()}
            srcSet={this.buildSrcSet()}
-           className={this.props.className}/>
+           {this.buildSizes()}
+           />
     );
   }
 }
