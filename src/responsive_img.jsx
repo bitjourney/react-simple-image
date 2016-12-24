@@ -5,15 +5,17 @@ const srcSetShape = React.PropTypes.array(React.PropTypes.shape({
   src: React.PropTypes.string.isRequired,
 }));
 
+const sizesShape = React.PropTypes.array(React.PropTypes.shape({
+  size: React.PropTypes.string.isRequired,
+  mediaCondition: React.PropTypes.string,
+}));
+
 export const propsShape = {
   alt: React.PropTypes.string.isRequired,
   className: React.PropTypes.string,
   widthDescriptor: React.PropTypes.shape({
     srcSet: srcSetShape,
-    sizes: React.PropTypes.array(React.PropTypes.shape({
-      size: React.PropTypes.string.isRequired,
-      mediaCondition: React.PropTypes.string,
-    })),
+    sizes: sizesShapi,
   }),
   pixelDescriptor: React.PropTypes.shape({
     srcSet: srcSetShape,
