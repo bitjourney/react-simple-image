@@ -2,7 +2,7 @@ import assert from 'power-assert';
 import { renderToString } from 'react-dom/server';
 import { createElement } from 'components';
 
-import ResponsiveImg from 'components/shared/responsive_img';
+import ResponsiveImg from 'src/responsive_img';
 
 describe('ResponsiveImg', () => {
     it('renders expected html string', () => {
