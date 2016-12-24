@@ -2,9 +2,9 @@ import assert from 'power-assert';
 import {renderToString} from 'react-dom/server';
 import {createElement} from 'react';
 
-import ResponsiveImg from 'responsive_img';
+import Image from 'image';
 
-describe('ResponsiveImg', () => {
+describe('Image', () => {
   describe('with widthDescriptor', () => {
     it('renders an expected html string without sizes option', () => {
       const props = {
@@ -17,7 +17,7 @@ describe('ResponsiveImg', () => {
           ],
         },
       };
-      const html = renderToString(createElement(ResponsiveImg, props));
+      const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
       assert(html.includes(' src="example-small.svg" '));
@@ -40,7 +40,7 @@ describe('ResponsiveImg', () => {
           ]
         },
       };
-      const html = renderToString(createElement(ResponsiveImg, props));
+      const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
       assert(html.includes(' src="example-small.svg" '));
@@ -60,7 +60,7 @@ describe('ResponsiveImg', () => {
           ],
         },
       };
-      const html = renderToString(createElement(ResponsiveImg, props));
+      const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
       assert(html.includes(' src="example.svg" '));
@@ -83,7 +83,7 @@ describe('ResponsiveImg', () => {
           ],
         },
       };
-      const html = renderToString(createElement(ResponsiveImg, props));
+      const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
       assert(html.includes(' src="example-small.svg" '));

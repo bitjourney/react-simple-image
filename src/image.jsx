@@ -15,7 +15,7 @@ export const propsShape = {
   className: React.PropTypes.string,
   widthDescriptor: React.PropTypes.shape({
     srcSet: srcSetShape,
-    sizes: sizesShapi,
+    sizes: sizesShape,
   }),
   pixelDescriptor: React.PropTypes.shape({
     srcSet: srcSetShape,
