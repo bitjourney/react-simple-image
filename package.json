@@ -2,7 +2,7 @@
   "name": "react-responsive-image",
   "version": "0.1.0",
   "description": "responsive <img> tag with cleaner srcset/sizes interface.",
-  "main": "src/responsive_img.jsx",
+  "main": "src/image.jsx",
   "scripts": {
     "test": "$(npm bin)/mocha --opts spec/mocha.opts  spec/**/*.spec.jsx",
     "lint": "$(npm bin)/eslint src/**/*.jsx"
