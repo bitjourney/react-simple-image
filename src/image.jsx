@@ -10,21 +10,19 @@ const sizesShape = React.PropTypes.array(React.PropTypes.shape({
   mediaCondition: React.PropTypes.string,
 }));
 
-export const propsShape = {
-  alt: React.PropTypes.string.isRequired,
-  className: React.PropTypes.string,
-  widthDescriptor: React.PropTypes.shape({
-    srcSet: srcSetShape,
-    sizes: sizesShape,
-  }),
-  pixelDescriptor: React.PropTypes.shape({
-    srcSet: srcSetShape,
-  }),
-};
-
 export default class Image extends React.Component {
   static get propTypes() {
-    return propsShape;
+    return {
+      alt: React.PropTypes.string.isRequired,
+      className: React.PropTypes.string,
+      widthDescriptor: React.PropTypes.shape({
+        srcSet: srcSetShape,
+        sizes: sizesShape,
+      }),
+      pixelDescriptor: React.PropTypes.shape({
+        srcSet: srcSetShape,
+      }),
+    }
   }
 
   constructor(props) {
