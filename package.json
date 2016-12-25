@@ -4,7 +4,9 @@
   "description": "responsive <img> tag with cleaner srcset/sizes interface.",
   "main": "src/responsive_img.jsx",
   "scripts": {
+    "pretest": "npm ls react || yarn add react",
     "test": "$(npm bin)/mocha --opts spec/mocha.opts  spec/**/*.spec.jsx",
+    "prebuild": "npm ls react && yarn remove react",
     "lint": "$(npm bin)/eslint src/**/*.jsx"
   },
   "repository": {
@@ -32,11 +34,14 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
-    "power-assert": "^1.4.2",
     "mocha": "^3.2.0",
+    "power-assert": "^1.4.2",
     "react-dom": "^15.4.1"
   },
   "peerDependencies": {
+    "react": "^15.4.1"
+  },
+  "dependencies": {
     "react": "^15.4.1"
   }
 }
