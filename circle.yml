@@ -12,6 +12,12 @@ dependencies:
     - ~/.yarn
     - ~/.yarn-cache
   pre:
+    # Remove cached gems and npm packages when update gems
+    - >
+      if [ -n "${BUNDLE_UPDATE}" -a "${CIRCLE_BRANCH}" = 'master' ] ; then
+        rm -rf /home/ubuntu/react-responsive-image/node_modules
+      fi
+
     - |
       if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
         curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
