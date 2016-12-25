@@ -31,7 +31,7 @@ Here are some tips:
 
 For more information, see http://w3c.github.io/html/semantics-embedded-content.html#element-attrdef-img-srcset
 
-```jsx harmony
+```jsx
 <Image
   alt='example'
   widthDescriptor={{
@@ -53,7 +53,7 @@ For more information, see http://w3c.github.io/html/semantics-embedded-content.h
 
 ## widthDescriptor
 
-```jsx harmony
+```jsx 
 import Image from 'react-responsive-image';
 
 <Image
@@ -75,7 +75,7 @@ import Image from 'react-responsive-image';
 
 ## pixelDescriptor
 
-```jsx harmony
+```jsx
 import Image from 'react-responsive-image';
 
 <Image
