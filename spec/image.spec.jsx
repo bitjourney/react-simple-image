@@ -12,17 +12,17 @@ describe('Image', () => {
         alt: 'example',
         widthDescriptor: {
           srcSet: [
-            { descriptor: '360w', src: 'example-small.svg' },
-            { descriptor: '720w', src: 'example-middle.svg' },
-            { descriptor: '1200w', src: 'example-large.svg' },
+            { descriptor: '360w', src: 'example-small.png' },
+            { descriptor: '720w', src: 'example-middle.png' },
+            { descriptor: '1200w', src: 'example-large.png' },
           ],
         },
       };
       const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
-      assert(html.includes(' src="example-small.svg" '));
-      assert(html.includes(' srcset="example-small.svg 360w,example-middle.svg 720w,example-large.svg 1200w" '));
+      assert(html.includes(' src="example-small.png" '));
+      assert(html.includes(' srcset="example-small.png 360w,example-middle.png 720w,example-large.png 1200w" '));
     });
 
     it('renders an expected html string without option', () => {
@@ -30,9 +30,9 @@ describe('Image', () => {
         alt: 'example',
         widthDescriptor: {
           srcSet: [
-            { descriptor: '360w', src: 'example-small.svg' },
-            { descriptor: '720w', src: 'example-middle.svg' },
-            { descriptor: '1200w', src: 'example-large.svg' },
+            { descriptor: '360w', src: 'example-small.png' },
+            { descriptor: '720w', src: 'example-middle.png' },
+            { descriptor: '1200w', src: 'example-large.png' },
           ],
           sizes: [
             { size: '100vw', mediaCondition: '(max-width: 30em)' },
@@ -44,8 +44,8 @@ describe('Image', () => {
       const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
-      assert(html.includes(' src="example-small.svg" '));
-      assert(html.includes(' srcset="example-small.svg 360w,example-middle.svg 720w,example-large.svg 1200w" '));
+      assert(html.includes(' src="example-small.png" '));
+      assert(html.includes(' srcset="example-small.png 360w,example-middle.png 720w,example-large.png 1200w" '));
       assert(html.includes(' sizes="(max-width: 30em) 100vw,(max-width: 50em) 50vw,calc(33vw - 100px)"'));
     });
   });
@@ -56,16 +56,16 @@ describe('Image', () => {
         alt: 'example',
         pixelDescriptor: {
           srcSet: [
-            { descriptor: '1x', src: 'example.svg' },
-            { descriptor: '2x', src: 'example@2x.svg' },
+            { descriptor: '1x', src: 'example.png' },
+            { descriptor: '2x', src: 'example@2x.png' },
           ],
         },
       };
       const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
-      assert(html.includes(' src="example.svg" '));
-      assert(html.includes(' srcset="example.svg 1x,example@2x.svg 2x" '));
+      assert(html.includes(' src="example.png" '));
+      assert(html.includes(' srcset="example.png 1x,example@2x.png 2x" '));
     });
   });
 
@@ -75,21 +75,21 @@ describe('Image', () => {
         alt: 'example',
         widthDescriptor: {
           srcSet: [
-            { descriptor: '360w', src: 'example-small.svg' },
+            { descriptor: '360w', src: 'example-small.png' },
           ],
         },
         pixelDescriptor: {
           srcSet: [
-            { descriptor: '1x', src: 'example.svg' },
+            { descriptor: '1x', src: 'example.png' },
           ],
         },
       };
       const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
-      assert(html.includes(' src="example-small.svg" '));
-      assert(html.includes(' srcset="example-small.svg 360w" '));
-      assert(!html.includes(' srcset="example.svg 1x,example@2x.svg 2x" '));
+      assert(html.includes(' src="example-small.png" '));
+      assert(html.includes(' srcset="example-small.png 360w" '));
+      assert(!html.includes(' srcset="example.png 1x,example@2x.png 2x" '));
     });
   });
 });
