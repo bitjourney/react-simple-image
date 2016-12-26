@@ -22,7 +22,7 @@ export default class Image extends React.Component {
       pixelDescriptor: React.PropTypes.shape({
         srcSet: srcSetShape,
       }),
-    }
+    };
   }
 
   constructor(props) {
