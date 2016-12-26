@@ -1,6 +1,6 @@
 import assert from 'power-assert';
-import {renderToString} from 'react-dom/server';
-import {createElement} from 'react';
+import { renderToString } from 'react-dom/server';
+import { createElement } from 'react';
 
 import Image from 'image';
 
@@ -11,9 +11,9 @@ describe('Image', () => {
         alt: 'example',
         widthDescriptor: {
           srcSet: [
-            {descriptor: '360w', src: 'example-small.svg',},
-            {descriptor: '720w', src: 'example-middle.svg',},
-            {descriptor: '1200w', src: 'example-large.svg',},
+            { descriptor: '360w', src: 'example-small.svg' },
+            { descriptor: '720w', src: 'example-middle.svg' },
+            { descriptor: '1200w', src: 'example-large.svg' },
           ],
         },
       };
@@ -29,15 +29,15 @@ describe('Image', () => {
         alt: 'example',
         widthDescriptor: {
           srcSet: [
-            {descriptor: '360w', src: 'example-small.svg',},
-            {descriptor: '720w', src: 'example-middle.svg',},
-            {descriptor: '1200w', src: 'example-large.svg',},
+            { descriptor: '360w', src: 'example-small.svg' },
+            { descriptor: '720w', src: 'example-middle.svg' },
+            { descriptor: '1200w', src: 'example-large.svg' },
           ],
           sizes: [
-            {size: '100vw', mediaCondition: '(max-width: 30em)',},
-            {size: '50vw', mediaCondition: '(max-width: 50em)',},
-            {size: 'calc(33vw - 100px)',}, // should be default if mediaCondition is not given
-          ]
+            { size: '100vw', mediaCondition: '(max-width: 30em)' },
+            { size: '50vw', mediaCondition: '(max-width: 50em)' },
+            { size: 'calc(33vw - 100px)' }, // should be default if mediaCondition is not given
+          ],
         },
       };
       const html = renderToString(createElement(Image, props));
@@ -55,8 +55,8 @@ describe('Image', () => {
         alt: 'example',
         pixelDescriptor: {
           srcSet: [
-            {descriptor: '1x', src: 'example.svg'},
-            {descriptor: '2x', src: 'example@2x.svg'},
+            { descriptor: '1x', src: 'example.svg' },
+            { descriptor: '2x', src: 'example@2x.svg' },
           ],
         },
       };
@@ -74,12 +74,12 @@ describe('Image', () => {
         alt: 'example',
         widthDescriptor: {
           srcSet: [
-            {descriptor: '360w', src: 'example-small.svg',}
+            { descriptor: '360w', src: 'example-small.svg' },
           ],
         },
         pixelDescriptor: {
           srcSet: [
-            {descriptor: '1x', src: 'example.svg'}
+            { descriptor: '1x', src: 'example.svg' },
           ],
         },
       };
