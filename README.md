@@ -1,17 +1,17 @@
-# react-responsive-image
+# react-simple-image
 
-`react-responsive-image` is a React Components of <img> tag with cleaner srcset/sizes interface.
+`react-simple-image` is a React Components of <img> tag with cleaner srcset/sizes interface.
 
 # Installation
 
 ```bash
-npm install --save react-responsive-image
+npm install --save react-simple-image
 ```
 
 or,
 
 ```bash
-yarn add react-responsive-image
+yarn add react-simple-image
 ```
 
 # Usage
@@ -54,7 +54,7 @@ For more information, see http://w3c.github.io/html/semantics-embedded-content.h
 ## widthDescriptor
 
 ```jsx 
-import Image from 'react-responsive-image';
+import Image from 'react-simple-image';
 
 <Image
   alt='example'
@@ -76,7 +76,7 @@ import Image from 'react-responsive-image';
 ## pixelDescriptor
 
 ```jsx
-import Image from 'react-responsive-image';
+import Image from 'react-simple-image';
 
 <Image
   alt='example'
