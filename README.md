@@ -1,6 +1,6 @@
 # react-simple-image
 
-`react-simple-image` is a React Components of <img> tag with cleaner srcset/sizes interface.
+`react-simple-image` is a React Components of `<img>` tag with cleaner srcset/sizes interface.
 
 # Installation
 
