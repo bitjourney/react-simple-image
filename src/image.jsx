@@ -1,9 +1,5 @@
 import React from 'react';
-
-// TODO: fix regexp after reading book
-const REGEXP_DESCRIPTOR_WIDTH = /(\d)+(\.\d+)?w$/;
-const REGEXP_DESCRIPTOR_PIXEL = /(\d)+(\.\d+)?x$/;
-const REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL = /(\d)+(\.\d+)?(w|x)$/;
+import Matcher from './matcher';
 
 export default class Image extends React.Component {
   static get propTypes() {
@@ -11,7 +7,7 @@ export default class Image extends React.Component {
       alt: React.PropTypes.string.isRequired,
       className: React.PropTypes.string,
       srcSet: React.PropTypes.arrayOf((props, propName, componentName) => {
-        if (!REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL.test(propName)) {
+        if (!Matcher.matchWidthDescriptor(propName)) {
           return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
         }
         return null;
@@ -27,7 +23,7 @@ export default class Image extends React.Component {
     super(props);
     this.state = {
       widthDescriptorOnly: this.props.srcSet.every((srcSet) => {
-        return Object.keys(srcSet).every(descriptor => REGEXP_DESCRIPTOR_WIDTH.test(descriptor));
+        return Object.keys(srcSet).every(descriptor => Matcher.matchWidthDescriptor(descriptor));
       }),
     };
   }
@@ -39,13 +35,17 @@ export default class Image extends React.Component {
   }
 
   buildSrcSet() {
-    const descriptorPattern = this.state.widthDescriptorOnly
-          ? REGEXP_DESCRIPTOR_WIDTH : REGEXP_DESCRIPTOR_PIXEL;
+    const matcher = this.state.widthDescriptorOnly
+          ? Matcher.matchWidthDescriptor : Matcher.matchPixelDescriptor;
     return this.props.srcSet
                 .filter((srcSet) => {
-                  return Object.keys(srcSet).every(descriptor => descriptorPattern.test(descriptor));
+                  return Object.keys(srcSet).every((descriptor) => {
+                    return matcher.call(this, descriptor);
+                  });
                 }).map((srcSet) => {
-                  return Object.keys(srcSet).map(descriptor => `${srcSet[descriptor]} ${descriptor}`);
+                  return Object.keys(srcSet).map((descriptor) => {
+                    return `${srcSet[ descriptor ]} ${descriptor}`
+                  });
                 });
   }
 

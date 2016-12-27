@@ -47,7 +47,7 @@ describe('Image', () => {
   });
 
   describe('with pixel descriptor', () => {
-    it('shuld render an expected html string', () => {
+    it('should render an expected html string', () => {
       const props = {
         alt: 'example',
         srcSet: [
