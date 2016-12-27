@@ -1,0 +1,13 @@
+{
+  // editor
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+
+  // files
+  "files.trimTrailingWhitespace": true,
+  "files.autoSave": "onFocusChange",
+
+  // plugin - ESLint
+  "eslint.autoFixOnSave": true
+}
