@@ -11,12 +11,11 @@ export default class Image extends React.Component {
       alt: React.PropTypes.string.isRequired,
       className: React.PropTypes.string,
       srcSet: React.PropTypes.arrayOf((props, propName, componentName) => {
-          if (!REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL.test(propName)) {
-            return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
-          }
-          return null;
-        },
-      ),
+        if (!REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL.test(propName)) {
+          return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
+        }
+        return null;
+      }),
       sizes: React.PropTypes.arrayOf(React.PropTypes.shape({
         size: React.PropTypes.string.isRequired,
         mediaCondition: React.PropTypes.string,
@@ -28,7 +27,7 @@ export default class Image extends React.Component {
     super(props);
     this.state = {
       widthDescriptorOnly: this.props.srcSet.every((srcSet) => {
-        return Object.keys(srcSet).every(descriptor =>  REGEXP_DESCRIPTOR_WIDTH.test(descriptor));
+        return Object.keys(srcSet).every(descriptor => REGEXP_DESCRIPTOR_WIDTH.test(descriptor));
       }),
     };
   }
