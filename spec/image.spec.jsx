@@ -7,7 +7,7 @@ import Image from 'image';
 
 describe('Image', () => {
   describe('with width descriptor', () => {
-    it('renders an expected html string without sizes option', () => {
+    it('should render an expected html string without sizes option', () => {
       const props = {
         alt: 'example',
         srcSet: [
@@ -23,7 +23,7 @@ describe('Image', () => {
       assert(html.includes(' srcset="example-small.png 360w,example-middle.png 720w,example-large.png 1200w" '));
     });
 
-    it('renders an expected html string without option', () => {
+    it('should render an expected html string without option', () => {
       const props = {
         alt: 'example',
         srcSet: [
@@ -47,7 +47,7 @@ describe('Image', () => {
   });
 
   describe('with pixel descriptor', () => {
-    it('renders an expected html string', () => {
+    it('shuld render an expected html string', () => {
       const props = {
         alt: 'example',
         srcSet: [
@@ -85,7 +85,7 @@ describe('Image', () => {
   });
 
   describe('with both width descriptor and pixel descriptor', () => {
-    it('should renders widthDescriptor over pixelDescriptor', () => {
+    it('should render widthDescriptor over pixelDescriptor', () => {
       const props = {
         alt: 'example',
         srcSet: [
