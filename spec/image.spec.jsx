@@ -90,14 +90,16 @@ describe('Image', () => {
         alt: 'example',
         srcSet: [
           { descriptor: '360w', src: 'example-small.png' },
+          { descriptor: '720w', src: 'example-middle.png' },
           { descriptor: '1x', src: 'example.png' },
+          { descriptor: '2x', src: 'example@2x.png' },
         ],
       };
       const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
       assert(html.includes(' src="example-small.png" '));
-      assert(html.includes(' srcset="example-small.png 360w" '));
+      assert(html.includes(' srcset="example-small.png 360w,example-middle.png 720w" '));
       assert(!html.includes(' srcset="example.png 1x,example@2x.png 2x" '));
     });
   });
