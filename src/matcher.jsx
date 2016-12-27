@@ -1,5 +1,5 @@
 // TODO: fix regexp after reading book
-const REGEXP_DESCRIPTOR_WIDTH = /(\d)+(\.\d+)?w$/;
+const REGEXP_DESCRIPTOR_WIDTH = /^\d+(?:\.\d+)?w$/;
 const REGEXP_DESCRIPTOR_PIXEL = /(\d)+(\.\d+)?x$/;
 const REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL = /(\d)+(\.\d+)?(w|x)$/;
 
