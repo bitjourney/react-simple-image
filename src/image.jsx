@@ -10,10 +10,11 @@ export default class Image extends React.Component {
       alt: React.PropTypes.string.isRequired,
       className: React.PropTypes.string,
       srcSet: React.PropTypes.arrayOf(React.PropTypes.shape({
-        descriptor: function(props, propName, componentName) {
-          if (!REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL.test(props[ propName ])) {
+        descriptor: (props, propName, componentName) => {
+          if (!REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL.test(props[propName])) {
             return new Error(`Invalid prop ${propName} supplied to '${componentName}'. Validation failed.`);
           }
+          return null;
         },
         src: React.PropTypes.string.isRequired,
       })),
@@ -27,7 +28,9 @@ export default class Image extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      widthDescriptorOnly : this.props.srcSet.every(srcSet => REGEXP_DESCRIPTOR_WIDTH.test(srcSet.descriptor))
+      widthDescriptorOnly: this.props.srcSet.every(
+        srcSet => REGEXP_DESCRIPTOR_WIDTH.test(srcSet.descriptor),
+      ),
     };
   }
 
@@ -36,7 +39,8 @@ export default class Image extends React.Component {
   }
 
   buildSrcSet() {
-    const descriptorPattern = this.state.widthDescriptorOnly ? REGEXP_DESCRIPTOR_WIDTH : REGEXP_DESCRIPTOR_PIXEL;
+    const descriptorPattern = this.state.widthDescriptorOnly
+          ? REGEXP_DESCRIPTOR_WIDTH : REGEXP_DESCRIPTOR_PIXEL;
     return this.props.srcSet
                 .filter(srcSet => descriptorPattern.test(srcSet.descriptor))
                 .map(srcSet => `${srcSet.src} ${srcSet.descriptor}`);
@@ -51,6 +55,7 @@ export default class Image extends React.Component {
         return `${size.size}`;
       });
     }
+    return null;
   }
 
   render() {
