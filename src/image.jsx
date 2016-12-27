@@ -7,7 +7,7 @@ export default class Image extends React.Component {
       alt: React.PropTypes.string.isRequired,
       className: React.PropTypes.string,
       srcSet: React.PropTypes.arrayOf((props, propName, componentName) => {
-        if (!Matcher.matchWidthDescriptor(propName)) {
+        if (!Matcher.matchDescriptor(propName)) {
           return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
         }
         return null;
@@ -23,7 +23,9 @@ export default class Image extends React.Component {
     super(props);
     this.state = {
       widthDescriptorOnly: this.props.srcSet.every((srcSet) => {
-        return Object.keys(srcSet).every(descriptor => Matcher.matchWidthDescriptor(descriptor));
+        return Object.keys(srcSet).every((descriptor) => {
+          return Matcher.matchWidthDescriptor(descriptor);
+        });
       }),
     };
   }
@@ -44,7 +46,7 @@ export default class Image extends React.Component {
                   });
                 }).map((srcSet) => {
                   return Object.keys(srcSet).map((descriptor) => {
-                    return `${srcSet[ descriptor ]} ${descriptor}`
+                    return `${srcSet[descriptor]} ${descriptor}`;
                   });
                 });
   }
