@@ -1,6 +1,7 @@
 import React from 'react';
 
 const REGEXP_DESCRIPTOR_WIDTH = /(\d)+(\.\d+)?w$/;
+const REGEXP_DESCRIPTOR_PIXEL = /(\d)+(\.\d+)?x$/;
 const REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL = /(\d)+(\.\d+)?(w|x)$/;
 
 export default class Image extends React.Component {
@@ -26,7 +27,7 @@ export default class Image extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hasWidthDescriptorOnly : this.props.srcSet.every(srcSet => REGEXP_DESCRIPTOR_WIDTH.test(srcSet.descriptor))
+      widthDescriptorOnly : this.props.srcSet.every(srcSet => REGEXP_DESCRIPTOR_WIDTH.test(srcSet.descriptor))
     };
   }
 
@@ -35,11 +36,14 @@ export default class Image extends React.Component {
   }
 
   buildSrcSet() {
-    return this.props.srcSet.map(srcSet => `${srcSet.src} ${srcSet.descriptor}`);
+    const descriptorPattern = this.state.widthDescriptorOnly ? REGEXP_DESCRIPTOR_WIDTH : REGEXP_DESCRIPTOR_PIXEL;
+    return this.props.srcSet
+                .filter(srcSet => descriptorPattern.test(srcSet.descriptor))
+                .map(srcSet => `${srcSet.src} ${srcSet.descriptor}`);
   }
 
   buildSizes() {
-    if (this.props.sizes && this.state.hasWidthDescriptorOnly) {
+    if (this.props.sizes && this.state.widthDescriptorOnly) {
       return this.props.sizes.map((size) => {
         if (size.mediaCondition) {
           return `${size.mediaCondition} ${size.size}`;
@@ -50,7 +54,6 @@ export default class Image extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <img
         alt={this.props.alt}

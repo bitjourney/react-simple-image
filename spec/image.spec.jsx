@@ -85,7 +85,7 @@ describe('Image', () => {
   });
 
   describe('with both width descriptor and pixel descriptor', () => {
-    it('should render widthDescriptor over pixelDescriptor', () => {
+    it('should render pixel descriptor and not render width descriptor', () => {
       const props = {
         alt: 'example',
         srcSet: [
@@ -99,8 +99,8 @@ describe('Image', () => {
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
       assert(html.includes(' src="example-small.png" '));
-      assert(html.includes(' srcset="example-small.png 360w,example-middle.png 720w" '));
-      assert(!html.includes(' srcset="example.png 1x,example@2x.png 2x" '));
+      assert(html.includes(' srcset="example.png 1x,example@2x.png 2x" '));
+      assert(!html.includes(' srcset="example-small.png 360w,example-middle.png 720w" '));
     });
   });
 
