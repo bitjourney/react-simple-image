@@ -5,5 +5,8 @@
     "react",
     "jsx-a11y",
     "import"
-  ]
+  ],
+  "rules": {
+    "arrow-body-style": 0
+  }
 }
