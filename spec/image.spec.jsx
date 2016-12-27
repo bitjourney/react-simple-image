@@ -11,9 +11,9 @@ describe('Image', () => {
       const props = {
         alt: 'example',
         srcSet: [
-          { descriptor: '360w', src: 'example-small.png' },
-          { descriptor: '720w', src: 'example-middle.png' },
-          { descriptor: '1200w', src: 'example-large.png' },
+          { '360w': 'example-small.png' },
+          { '720w': 'example-middle.png' },
+          { '1200w': 'example-large.png' },
         ],
       };
       const html = renderToString(createElement(Image, props));
@@ -27,9 +27,9 @@ describe('Image', () => {
       const props = {
         alt: 'example',
         srcSet: [
-          { descriptor: '360w', src: 'example-small.png' },
-          { descriptor: '720w', src: 'example-middle.png' },
-          { descriptor: '1200w', src: 'example-large.png' },
+          { '360w': 'example-small.png' },
+          { '720w': 'example-middle.png' },
+          { '1200w': 'example-large.png' },
         ],
         sizes: [
           { size: '100vw', mediaCondition: '(max-width: 30em)' },
@@ -51,8 +51,8 @@ describe('Image', () => {
       const props = {
         alt: 'example',
         srcSet: [
-          { descriptor: '1x', src: 'example.png' },
-          { descriptor: '2x', src: 'example@2x.png' },
+          { '1x': 'example.png' },
+          { '2x': 'example@2x.png' },
         ],
       };
       const html = renderToString(createElement(Image, props));
@@ -66,8 +66,8 @@ describe('Image', () => {
       const props = {
         alt: 'example',
         srcSet: [
-          { descriptor: '1x', src: 'example.png' },
-          { descriptor: '2x', src: 'example@2x.png' },
+          { '1x': 'example.png' },
+          { '2x': 'example@2x.png' },
         ],
         sizes: [
           { size: '100vw', mediaCondition: '(max-width: 30em)' },
@@ -89,10 +89,10 @@ describe('Image', () => {
       const props = {
         alt: 'example',
         srcSet: [
-          { descriptor: '360w', src: 'example-small.png' },
-          { descriptor: '720w', src: 'example-middle.png' },
-          { descriptor: '1x', src: 'example.png' },
-          { descriptor: '2x', src: 'example@2x.png' },
+          { '360w': 'example-small.png' },
+          { '720w': 'example-middle.png' },
+          { '1x': 'example.png' },
+          { '2x': 'example@2x.png' },
         ],
       };
       const html = renderToString(createElement(Image, props));
@@ -109,7 +109,7 @@ describe('Image', () => {
       const props = {
         alt: 'example',
         srcSet: [
-          { descriptor: 'invalid', src: 'example.png' },
+          { invalid: 'example.png' },
         ],
       };
       const html = renderToString(createElement(Image, props));

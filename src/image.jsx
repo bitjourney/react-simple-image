@@ -1,5 +1,6 @@
 import React from 'react';
 
+// TODO: fix regexp after reading book
 const REGEXP_DESCRIPTOR_WIDTH = /(\d)+(\.\d+)?w$/;
 const REGEXP_DESCRIPTOR_PIXEL = /(\d)+(\.\d+)?x$/;
 const REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL = /(\d)+(\.\d+)?(w|x)$/;
@@ -9,15 +10,13 @@ export default class Image extends React.Component {
     return {
       alt: React.PropTypes.string.isRequired,
       className: React.PropTypes.string,
-      srcSet: React.PropTypes.arrayOf(React.PropTypes.shape({
-        descriptor: (props, propName, componentName) => {
-          if (!REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL.test(props[propName])) {
-            return new Error(`Invalid prop ${propName} supplied to '${componentName}'. Validation failed.`);
+      srcSet: React.PropTypes.arrayOf((props, propName, componentName) => {
+          if (!REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL.test(propName)) {
+            return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
           }
           return null;
         },
-        src: React.PropTypes.string.isRequired,
-      })),
+      ),
       sizes: React.PropTypes.arrayOf(React.PropTypes.shape({
         size: React.PropTypes.string.isRequired,
         mediaCondition: React.PropTypes.string,
@@ -28,22 +27,27 @@ export default class Image extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      widthDescriptorOnly: this.props.srcSet.every(
-        srcSet => REGEXP_DESCRIPTOR_WIDTH.test(srcSet.descriptor),
-      ),
+      widthDescriptorOnly: this.props.srcSet.every((srcSet) => {
+        return Object.keys(srcSet).every(descriptor =>  REGEXP_DESCRIPTOR_WIDTH.test(descriptor));
+      }),
     };
   }
 
   getSrc() {
-    return this.props.srcSet[0].src;
+    const firstSrcSet = this.props.srcSet[0];
+    const key = Object.keys(firstSrcSet)[0];
+    return firstSrcSet[key];
   }
 
   buildSrcSet() {
     const descriptorPattern = this.state.widthDescriptorOnly
           ? REGEXP_DESCRIPTOR_WIDTH : REGEXP_DESCRIPTOR_PIXEL;
     return this.props.srcSet
-                .filter(srcSet => descriptorPattern.test(srcSet.descriptor))
-                .map(srcSet => `${srcSet.src} ${srcSet.descriptor}`);
+                .filter((srcSet) => {
+                  return Object.keys(srcSet).every(descriptor => descriptorPattern.test(descriptor));
+                }).map((srcSet) => {
+                  return Object.keys(srcSet).map(descriptor => `${srcSet[descriptor]} ${descriptor}`);
+                });
   }
 
   buildSizes() {
