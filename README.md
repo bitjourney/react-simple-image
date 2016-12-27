@@ -1,8 +1,8 @@
-# react-simple-image
+# react-simple-image [![CircleCI](https://circleci.com/gh/bitjourney/react-simple-image/tree/master.svg?style=svg)](https://circleci.com/gh/bitjourney/react-simple-image/tree/master)
 
 `react-simple-image` is a React Components of `<img>` tag with cleaner srcset/sizes interface.
 
-# Installation
+## Install
 
 ```bash
 npm install --save react-simple-image
@@ -14,13 +14,13 @@ or,
 yarn add react-simple-image
 ```
 
-# Usage
+## Usage
 
 The `<Image/>` component has two descriptor type:
 
 - `alt` : (Required) alt text
 - `srcSet - Array` : (Required) src set
-  - `descriptor - Regexp`: width descriptor (e.g. 360w, 720w) or pixel descriptor (e.g. 1x, 1.5x, or 2x) 
+  - `descriptor - Regexp`: width descriptor (e.g. 360w, 720w) or pixel descriptor (e.g. 1x, 1.5x, or 2x)
   - `src - String`: image paths/urls
 - `sizes - Array` : (Optional) sizez set for width descriptor
   - `size - String`: image size
@@ -44,16 +44,16 @@ For more information, see http://w3c.github.io/html/semantics-embedded-content.h
   sizes={[
     {size: '100vw', mediaCondition: '(max-width: 30em)',},
     {size: '50vw', mediaCondition: '(max-width: 50em)',},
-    {size: 'calc(33vw - 100px)',}, 
+    {size: 'calc(33vw - 100px)',},
   ]},
   />
 ```
 
-# Example
+## Example
 
-## widthDescriptor
+### widthDescriptor
 
-```jsx 
+```jsx
 import Image from 'react-simple-image';
 
 <Image
@@ -66,12 +66,12 @@ import Image from 'react-simple-image';
   sizes={[
     {size: '100vw', mediaCondition: '(max-width: 30em)',},
     {size: '50vw', mediaCondition: '(max-width: 50em)',},
-    {size: 'calc(33vw - 100px)',}, 
+    {size: 'calc(33vw - 100px)',},
   ]},
   />
 ```
 
-## pixelDescriptor
+### pixelDescriptor
 
 ```jsx
 import Image from 'react-simple-image';
@@ -84,3 +84,19 @@ import Image from 'react-simple-image';
   ]},
   />
 ```
+
+## License
+
+Copyright (c) 2016 Bit Journey, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
