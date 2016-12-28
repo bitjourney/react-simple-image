@@ -14,5 +14,12 @@
       }
     ]
   ],
+  "env": {
+    "test": {
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  },
   "sourceMaps": true
 }
