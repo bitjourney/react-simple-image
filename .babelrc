@@ -4,15 +4,5 @@
     "react",
     "power-assert"
   ],
-  "plugins": [
-    [
-      "babel-plugin-resolver",
-      {
-        "resolveDirs": [
-          "src"
-        ]
-      }
-    ]
-  ],
   "sourceMaps": true
 }

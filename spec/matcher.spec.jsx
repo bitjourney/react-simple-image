@@ -1,6 +1,6 @@
 /* eslint no-undef: 0 */
 import assert from 'power-assert';
-import Matcher from 'matcher';
+import Matcher from '../src/matcher';
 
 describe('Matcher', () => {
   const validWidths = [
