@@ -1,4 +1,3 @@
-/* eslint no-undef: 0 */
 import assert from 'power-assert';
 import Matcher from '../src/matcher';
 

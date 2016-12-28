@@ -8,5 +8,8 @@
   ],
   "rules": {
     "arrow-body-style": 0
+  },
+  "env": {
+    "mocha": true
   }
 }
