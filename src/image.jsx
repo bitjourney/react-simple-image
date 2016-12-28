@@ -19,17 +19,10 @@ export default class Image extends React.Component {
     };
   }
 
-  static isWidthDescriptorOnly(srcSet) {
-    // OPTIMIZE: this is called every-time in componentWillReceiveProps
-    return Object.keys(srcSet).every((descriptor) => {
-      return Matcher.matchWidthDescriptor(descriptor);
-    });
-  }
-
   constructor(props) {
     super(props);
     this.state = {
-      widthDescriptorOnly: this.isWidthDescriptorOnly(this.props.srcSet),
+      widthDescriptorOnly: Matcher.isWidthDescriptorOnly(this.props.srcSet),
     };
   }
 
@@ -37,7 +30,7 @@ export default class Image extends React.Component {
     // OPTIMIZE: this logic could be refactored for performance reason
     if (nextProps.srcSet) {
       this.setState({
-        widthDescriptorOnly: this.isWidthDescriptorOnly(nextProps.srcSet),
+        widthDescriptorOnly: Matcher.isWidthDescriptorOnly(nextProps.srcSet),
       });
     }
   }

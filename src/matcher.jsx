@@ -15,4 +15,10 @@ export default class Matcher {
   static matchDescriptor(str) {
     return REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL.test(str);
   }
+
+  static isWidthDescriptorOnly(srcSet) {
+    return Object.keys(srcSet).every((descriptor) => {
+      return Matcher.matchWidthDescriptor(descriptor);
+    });
+  }
 }
