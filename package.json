@@ -8,6 +8,10 @@
     "lint": "$(npm bin)/eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
     "babel": "babel src --out-dir lib --source-map"
   },
+  "files" : [
+    "lib",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bitjourney/react-responsive-img.git"
