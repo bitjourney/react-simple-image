@@ -1,0 +1,18 @@
+{
+  "presets": [
+    "es2015",
+    "react",
+    "power-assert"
+  ],
+  "plugins": [
+    [
+      "babel-plugin-resolver",
+      {
+        "resolveDirs": [
+          "src"
+        ]
+      }
+    ]
+  ],
+  "sourceMaps": true
+}

@@ -1,0 +1,10 @@
+{
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+
+  "files.trimTrailingWhitespace": true,
+  "files.autoSave": "onFocusChange",
+
+  "eslint.autoFixOnSave": true
+}

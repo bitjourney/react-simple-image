@@ -1,0 +1,18 @@
+# cross platform
+/tmp
+*.swp
+*.swo
+*.un~
+*~
+*.DS_Store
+
+# editor
+/.idea
+
+# node
+node_modules/
+npm-debug.log
+
+# eslint
+.eslintcache
+
