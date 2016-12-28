@@ -37,11 +37,8 @@ export default class Image extends React.Component {
     const matcher = this.state.widthDescriptorOnly
       ? Matcher.matchWidthDescriptor : Matcher.matchPixelDescriptor;
     return Object.keys(this.props.srcSet)
-      .filter((descriptor) => {
-        return matcher.call(this, descriptor);
-      }).map((descriptor) => {
-        return `${this.props.srcSet[descriptor]} ${descriptor}`;
-      });
+      .filter(descriptor => matcher.call(this, descriptor))
+      .map(descriptor => `${this.props.srcSet[descriptor]} ${descriptor}`);
   }
 
   buildSizes() {
