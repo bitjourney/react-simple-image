@@ -1,8 +1,7 @@
+/* eslint no-undef: 0 */
 import assert from 'power-assert';
 import { renderToString } from 'react-dom/server';
 import { createElement } from 'react';
-/* eslint no-undef: 0 */
-
 import Image from 'image';
 
 describe('Image', () => {

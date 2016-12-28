@@ -1,6 +1,5 @@
-import assert from 'power-assert';
 /* eslint no-undef: 0 */
-
+import assert from 'power-assert';
 import Matcher from 'matcher';
 
 describe('Matcher', () => {
