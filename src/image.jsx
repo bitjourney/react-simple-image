@@ -6,12 +6,12 @@ export default class Image extends React.Component {
     return {
       alt: React.PropTypes.string.isRequired,
       className: React.PropTypes.string,
-      srcSet: React.PropTypes.arrayOf((props, propName, componentName) => {
+      srcSet: React.PropTypes.arrayOf(React.PropTypes.objectOf((props, propName, componentName) => {
         if (!Matcher.matchDescriptor(propName)) {
           return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
         }
         return null;
-      }),
+      })),
       sizes: React.PropTypes.arrayOf(React.PropTypes.shape({
         size: React.PropTypes.string.isRequired,
         mediaCondition: React.PropTypes.string,
