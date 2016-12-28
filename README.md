@@ -20,13 +20,13 @@ The `<Image/>` component has two descriptor type:
 
 - `alt - String` : (Required) alt text
 - `className - String` : (Optional) additional className
-- `srcSet - Array` : (Required) src set
-  - `Object`
-    - `key: descriptor - Regexp`: width descriptor (e.g. 360w, 720w) or pixel descriptor (e.g. 1x, 1.5x, or 2x)
-    - `value: src - String`: image paths/urls
+- `srcSet - Object` : (Required) src set
+  - `key: descriptor - Regexp`: width descriptor (e.g. 360w, 720w) or pixel descriptor (e.g. 1x, 1.5x, or 2x)
+  - `value: src - String`: image paths/urls
 - `sizes - Array` : (Optional) sizez set for width descriptor
-  - `size - String`: image size
-  - `mediaCondition - String`: to apply on the image size
+  - `Object`
+    - `size - String`: image size
+    - `mediaCondition - String`: to apply on the image size
 
 Here are some tips:
 
@@ -43,11 +43,11 @@ For more information, please reach out for:
 <Image
   alt='example'
   className='additional-className'
-  srcSet={[
-    {'360w', 'example-small.svg'},
-    {'720w', 'example-middle.svg'},
-    {'1200w', 'example-large.svg'},
-  ]},
+  srcSet={{
+    '360w': 'example-small.svg',
+    '720w': 'example-middle.svg',
+    '1200w': 'example-large.svg',
+  }},
   sizes={[
     {size: '100vw', mediaCondition: '(max-width: 30em)'},
     {size: '50vw', mediaCondition: '(max-width: 50em)'},
@@ -65,11 +65,11 @@ For more information, please reach out for:
 ```jsx
 <Image
   alt='example'
-  srcSet={[
-    {'360w', 'example-small.svg'},
-    {'720w', 'example-middle.svg'},
-    {'1200w', 'example-large.svg'},
-  ]},
+  srcSet={{
+    '360w': 'example-small.svg',
+    '720w': 'example-middle.svg',
+    '1200w': 'example-large.svg',
+  }},
   sizes={[
     {size: '100vw', mediaCondition: '(max-width: 30em)'},
     {size: '50vw', mediaCondition: '(max-width: 50em)'},
@@ -99,10 +99,10 @@ For more information, please reach out for:
 <Image
   alt='example'
   className='additional-className'
-  srcSet={[
-    {'1x', 'example.svg'},
-    {'2x', 'example@2x.svg'},
-  ]},
+  srcSet={{
+    '1x': 'example.svg',
+    '2x': 'example@2x.svg',
+  }},
   />
 ```
 
