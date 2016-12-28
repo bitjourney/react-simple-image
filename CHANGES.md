@@ -1,6 +1,6 @@
 # The Revision Histroy
 
-## v0.1.1 - 2016/12/29
+## v0.1.1 - 2016/12/28
 
 * Add babel export
 
