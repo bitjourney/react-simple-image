@@ -3,8 +3,6 @@ import { renderToString } from 'react-dom/server';
 import { createElement } from 'react';
 /* eslint no-undef: 0 */
 
-// eslint-disable-next-line max-len
-// eslint-disable-next-line import/extensions, import/no-extraneous-dependencies, import/no-unresolved
 import Image from 'image';
 
 describe('Image', () => {

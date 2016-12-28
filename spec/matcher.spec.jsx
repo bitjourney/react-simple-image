@@ -1,8 +1,6 @@
 import assert from 'power-assert';
 /* eslint no-undef: 0 */
 
-// eslint-disable-next-line max-len
-// eslint-disable-next-line import/extensions, import/no-extraneous-dependencies, import/no-unresolved
 import Matcher from 'matcher';
 
 describe('Matcher', () => {

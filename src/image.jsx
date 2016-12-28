@@ -1,5 +1,5 @@
 import React from 'react';
-import Matcher from './matcher';
+import Matcher from 'matcher';
 
 export default class Image extends React.Component {
   static get propTypes() {
