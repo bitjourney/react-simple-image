@@ -12,11 +12,11 @@ describe('Image', () => {
     it('should render an expected html string without sizes option', () => {
       const props = {
         alt: 'example',
-        srcSet: [
-          { '360w': 'example-small.png' },
-          { '720w': 'example-middle.png' },
-          { '1200w': 'example-large.png' },
-        ],
+        srcSet: {
+          '360w': 'example-small.png',
+          '720w': 'example-middle.png',
+          '1200w': 'example-large.png',
+        },
       };
       const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
@@ -28,11 +28,11 @@ describe('Image', () => {
     it('should render an expected html string without option', () => {
       const props = {
         alt: 'example',
-        srcSet: [
-          { '360w': 'example-small.png' },
-          { '720w': 'example-middle.png' },
-          { '1200w': 'example-large.png' },
-        ],
+        srcSet: {
+          '360w': 'example-small.png',
+          '720w': 'example-middle.png',
+          '1200w': 'example-large.png',
+        },
         sizes: [
           { size: '100vw', mediaCondition: '(max-width: 30em)' },
           { size: '50vw', mediaCondition: '(max-width: 50em)' },
@@ -53,10 +53,10 @@ describe('Image', () => {
       const props = {
         alt: 'example',
         className: 'additional-className',
-        srcSet: [
-          { '1x': 'example.png' },
-          { '2x': 'example@2x.png' },
-        ],
+        srcSet: {
+          '1x': 'example.png',
+          '2x': 'example@2x.png',
+        },
       };
       const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
@@ -69,10 +69,10 @@ describe('Image', () => {
     it('should not render an expected html string with sizes', () => {
       const props = {
         alt: 'example',
-        srcSet: [
-          { '1x': 'example.png' },
-          { '2x': 'example@2x.png' },
-        ],
+        srcSet: {
+          '1x': 'example.png',
+          '2x': 'example@2x.png',
+        },
         sizes: [
           { size: '100vw', mediaCondition: '(max-width: 30em)' },
           { size: '50vw', mediaCondition: '(max-width: 50em)' },
@@ -92,12 +92,12 @@ describe('Image', () => {
     it('should render pixel descriptor and not render width descriptor', () => {
       const props = {
         alt: 'example',
-        srcSet: [
-          { '360w': 'example-small.png' },
-          { '720w': 'example-middle.png' },
-          { '1x': 'example.png' },
-          { '2x': 'example@2x.png' },
-        ],
+        srcSet: {
+          '360w': 'example-small.png',
+          '720w': 'example-middle.png',
+          '1x': 'example.png',
+          '2x': 'example@2x.png',
+        },
       };
       const html = renderToString(createElement(Image, props));
       assert(html.startsWith('<img'));
@@ -112,9 +112,9 @@ describe('Image', () => {
     it('should throw error into console', () => {
       const props = {
         alt: 'example',
-        srcSet: [
-          { invalid: 'example.png' },
-        ],
+        srcSet: {
+          invalid: 'example.png',
+        },
       };
       const html = renderToString(createElement(Image, props));
       /*
