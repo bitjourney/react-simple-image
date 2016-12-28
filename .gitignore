@@ -16,3 +16,6 @@ npm-debug.log
 # eslint
 .eslintcache
 
+# app
+lib
+

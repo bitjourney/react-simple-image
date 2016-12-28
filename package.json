@@ -2,11 +2,16 @@
   "name": "react-simple-image",
   "version": "0.1.0",
   "description": "responsive <img> tag with cleaner srcset/sizes interface.",
-  "main": "src/image.jsx",
+  "main": "lib/image.js",
   "scripts": {
     "test": "$(npm bin)/mocha --opts spec/mocha.opts  spec/**/*.spec.jsx",
-    "lint": "$(npm bin)/eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}"
+    "lint": "$(npm bin)/eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
+    "build": "babel src --out-dir lib --source-map"
   },
+  "files" : [
+    "lib",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bitjourney/react-responsive-img.git"
