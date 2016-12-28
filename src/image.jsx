@@ -32,7 +32,9 @@ export default class Image extends React.Component {
     /*
      * TODO: object properties does not specify order,
      * so the result could change for each browser implementation.
-     * Adding 'src' props (optional) would be nice idea?
+     *
+     * see discussion below:
+     * https://github.com/bitjourney/react-simple-image/pull/4/files#r94013960
      */
     const firstSrcSetKey = Object.keys(this.props.srcSet)[0];
     return this.props.srcSet[firstSrcSetKey];
