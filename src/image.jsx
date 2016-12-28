@@ -29,6 +29,15 @@ export default class Image extends React.Component {
   }
 
   getSrc() {
+    /*
+     * TODO: object properties does not specify order,
+     * so the result could change for each browser implementation.
+     * Using Map would be simple alternative.
+     *
+     * @see
+     * https://www.ecma-international.org/ecma-262/5.1/#sec-15.2.3.14
+     * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#Objects_and_maps_compared
+     */
     const firstSrcSetKey = Object.keys(this.props.srcSet)[0];
     return this.props.srcSet[firstSrcSetKey];
   }
