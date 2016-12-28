@@ -19,13 +19,27 @@ export default class Image extends React.Component {
     };
   }
 
+  static isWidthDescriptorOnly(srcSet) {
+    // OPTIMIZE: this is called every-time in componentWillReceiveProps
+    return Object.keys(srcSet).every((descriptor) => {
+      return Matcher.matchWidthDescriptor(descriptor);
+    });
+  }
+
   constructor(props) {
     super(props);
     this.state = {
-      widthDescriptorOnly: Object.keys(this.props.srcSet).every((descriptor) => {
-        return Matcher.matchWidthDescriptor(descriptor);
-      }),
+      widthDescriptorOnly: this.isWidthDescriptorOnly(this.props.srcSet),
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // OPTIMIZE: this logic could be refactored for performance reason
+    if (nextProps.srcSet) {
+      this.setState({
+        widthDescriptorOnly: this.isWidthDescriptorOnly(nextProps.srcSet),
+      });
+    }
   }
 
   getSrc() {
