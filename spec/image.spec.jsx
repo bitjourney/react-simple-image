@@ -50,14 +50,17 @@ describe('Image', () => {
     it('should render an expected html string', () => {
       const props = {
         alt: 'example',
+        className: 'additional-className',
         srcSet: [
           { '1x': 'example.png' },
           { '2x': 'example@2x.png' },
         ],
       };
       const html = renderToString(createElement(Image, props));
+      console.log(html);
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
+      assert(html.includes(' class="additional-className" '));
       assert(html.includes(' src="example.png" '));
       assert(html.includes(' srcset="example.png 1x,example@2x.png 2x" '));
     });
