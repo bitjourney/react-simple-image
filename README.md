@@ -18,7 +18,8 @@ yarn add react-simple-image
 
 The `<Image/>` component has two descriptor type:
 
-- `alt` : (Required) alt text
+- `alt - String` : (Required) alt text
+- `className - String` : (Optional) additional className
 - `srcSet - Array` : (Required) src set
   - `Object`
     - `key: descriptor - Regexp`: width descriptor (e.g. 360w, 720w) or pixel descriptor (e.g. 1x, 1.5x, or 2x)
@@ -32,58 +33,90 @@ Here are some tips:
 - As the HTML5 standard specifications says, `sizes` is not compatible with pixel descriptor. If you specify `sizes` with pixel descriptor, it is gracefully ignored.
 - `width descriptor` and `pixel descriptor` are not intended to use at the same time. If you declare both props, `pixel descriptor` overwrites and `width descriptor` props is ignored
 
-For more information, see http://w3c.github.io/html/semantics-embedded-content.html#element-attrdef-img-srcset
+For more information, please reach out for:
+
+- http://w3c.github.io/html/semantics-embedded-content.html#element-attrdef-img-srcset
+
+### React Component
 
 ```jsx
 <Image
   alt='example'
+  className='additional-className'
   srcSet={[
-    {'360w', 'example-small.svg',},
-    {'720w', 'example-middle.svg',},
-    {'1200w', 'example-large.svg',},
+    {'360w', 'example-small.svg'},
+    {'720w', 'example-middle.svg'},
+    {'1200w', 'example-large.svg'},
   ]},
   sizes={[
-    {size: '100vw', mediaCondition: '(max-width: 30em)',},
-    {size: '50vw', mediaCondition: '(max-width: 50em)',},
-    {size: 'calc(33vw - 100px)',},
+    {size: '100vw', mediaCondition: '(max-width: 30em)'},
+    {size: '50vw', mediaCondition: '(max-width: 50em)'},
+    {size: 'calc(33vw - 100px)'},
   ]},
   />
 ```
 
 ## Example
 
-### widthDescriptor
+### width descriptor
+
+#### React Component
 
 ```jsx
-import Image from 'react-simple-image';
-
 <Image
   alt='example'
   srcSet={[
-    {'360w', 'example-small.svg',},
-    {'720w', 'example-middle.svg',},
-    {'1200w', 'example-large.svg',},
+    {'360w', 'example-small.svg'},
+    {'720w', 'example-middle.svg'},
+    {'1200w', 'example-large.svg'},
   ]},
   sizes={[
-    {size: '100vw', mediaCondition: '(max-width: 30em)',},
-    {size: '50vw', mediaCondition: '(max-width: 50em)',},
-    {size: 'calc(33vw - 100px)',},
+    {size: '100vw', mediaCondition: '(max-width: 30em)'},
+    {size: '50vw', mediaCondition: '(max-width: 50em)'},
+    {size: 'calc(33vw - 100px)'},
   ]},
   />
 ```
 
-### pixelDescriptor
+#### Rendered HTML
+
+```html
+<img 
+  alt="example" 
+  src="example-small.png" 
+  srcset="example-small.png 360w,example-middle.png 720w,example-large.png 1200w" 
+  sizes="(max-width: 30em) 100vw,(max-width: 50em) 50vw,calc(33vw - 100px)" 
+  data-reactroot="" 
+  data-reactid="1" 
+  data-react-checksum="1197296813"/>
+```
+
+### pixel descriptor
+
+#### React Component
 
 ```jsx
-import Image from 'react-simple-image';
-
 <Image
   alt='example'
+  className='additional-className'
   srcSet={[
     {'1x', 'example.svg'},
     {'2x', 'example@2x.svg'},
   ]},
   />
+```
+
+#### Rendered HTML
+
+```html
+<img 
+  alt="example" 
+  class="additional-className" 
+  src="example.png" 
+  srcset="example.png 1x,example@2x.png 2x" 
+  data-reactroot="" 
+  data-reactid="1" 
+  data-react-checksum="1897738717"/>
 ```
 
 ## License
