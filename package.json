@@ -6,7 +6,7 @@
   "scripts": {
     "test": "$(npm bin)/mocha --opts spec/mocha.opts  spec/**/*.spec.jsx",
     "lint": "$(npm bin)/eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
-    "babel": "babel src --out-dir lib --source-map"
+    "build": "babel src --out-dir lib --source-map"
   },
   "files" : [
     "lib",
