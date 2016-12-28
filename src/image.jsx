@@ -6,12 +6,12 @@ export default class Image extends React.Component {
     return {
       alt: React.PropTypes.string.isRequired,
       className: React.PropTypes.string,
-      srcSet: React.PropTypes.arrayOf(React.PropTypes.objectOf((props, propName, componentName) => {
+      srcSet: React.PropTypes.objectOf((props, propName, componentName) => {
         if (!Matcher.matchDescriptor(propName)) {
           return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
         }
         return null;
-      })),
+      }),
       sizes: React.PropTypes.arrayOf(React.PropTypes.shape({
         size: React.PropTypes.string.isRequired,
         mediaCondition: React.PropTypes.string,
@@ -22,33 +22,26 @@ export default class Image extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      widthDescriptorOnly: this.props.srcSet.every((srcSet) => {
-        return Object.keys(srcSet).every((descriptor) => {
-          return Matcher.matchWidthDescriptor(descriptor);
-        });
+      widthDescriptorOnly: Object.keys(this.props.srcSet).every((descriptor) => {
+        return Matcher.matchWidthDescriptor(descriptor);
       }),
     };
   }
 
   getSrc() {
-    const firstSrcSet = this.props.srcSet[0];
-    const key = Object.keys(firstSrcSet)[0];
-    return firstSrcSet[key];
+    const firstSrcSetKey = Object.keys(this.props.srcSet)[0];
+    return this.props.srcSet[firstSrcSetKey];
   }
 
   buildSrcSet() {
     const matcher = this.state.widthDescriptorOnly
-          ? Matcher.matchWidthDescriptor : Matcher.matchPixelDescriptor;
-    return this.props.srcSet
-                .filter((srcSet) => {
-                  return Object.keys(srcSet).every((descriptor) => {
-                    return matcher.call(this, descriptor);
-                  });
-                }).map((srcSet) => {
-                  return Object.keys(srcSet).map((descriptor) => {
-                    return `${srcSet[descriptor]} ${descriptor}`;
-                  });
-                });
+      ? Matcher.matchWidthDescriptor : Matcher.matchPixelDescriptor;
+    return Object.keys(this.props.srcSet)
+      .filter((descriptor) => {
+        return matcher.call(this, descriptor);
+      }).map((descriptor) => {
+        return `${this.props.srcSet[descriptor]} ${descriptor}`;
+      });
   }
 
   buildSizes() {
