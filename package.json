@@ -8,7 +8,7 @@
     "lint": "$(npm bin)/eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
     "build": "babel src --out-dir lib --source-map"
   },
-  "files" : [
+  "files": [
     "lib",
     "src"
   ],
@@ -38,9 +38,10 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
     "mocha": "^3.2.0",
+    "nyc": "^10.0.0",
     "power-assert": "^1.4.2",
-    "react-dom": "^15.4.1",
-    "react": "^15.4.1"
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   },
   "peerDependencies": {
     "react": "^15.4.1"
