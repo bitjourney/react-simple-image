@@ -4,8 +4,8 @@
   "description": "responsive <img> tag with cleaner srcset/sizes interface.",
   "main": "lib/image.js",
   "scripts": {
-    "test": "$(npm bin)/mocha --opts spec/mocha.opts  spec/**/*.spec.jsx",
-    "lint": "$(npm bin)/eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
+    "test": "mocha --opts spec/mocha.opts  spec/**/*.spec.jsx",
+    "lint": "eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
     "build": "babel src --out-dir lib --source-map"
   },
   "files" : [
