@@ -57,7 +57,6 @@ describe('Image', () => {
         ],
       };
       const html = renderToString(createElement(Image, props));
-      console.log(html);
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
       assert(html.includes(' class="additional-className" '));
