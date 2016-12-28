@@ -35,7 +35,7 @@ export default class Image extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     // OPTIMIZE: this logic could be refactored for performance reason
-    if (nextProps.srcSet) {
+    if (nextProps.srcSet && Object.is(this.props.srcSet, nextProps.srcSet)) {
       this.setState({
         widthDescriptorOnly: this.isWidthDescriptorOnly(nextProps.srcSet),
       });
