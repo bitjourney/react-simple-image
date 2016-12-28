@@ -64,7 +64,7 @@ describe('Image', () => {
       assert(html.includes(' srcset="example.png 1x,example@2x.png 2x" '));
     });
 
-    it('should not render an expected html string with sizez', () => {
+    it('should not render an expected html string with sizes', () => {
       const props = {
         alt: 'example',
         srcSet: [
