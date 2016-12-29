@@ -65,8 +65,7 @@
       "babel-register"
     ],
     "extension": [
-      ".jsx",
-      ".es6"
+      ".jsx"
     ],
     "reporter": [
       "text"
