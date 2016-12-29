@@ -6,4 +6,4 @@
 #   - https://github.com/sorah/envchain
 
 COVERALLS_REPO_TOKEN=$(envchain react-simple-image env | grep COVERALLS_REPO_TOKEN | cut -f2 -d"=") \
-  yarn coveralls
+  yarnpkg coveralls
