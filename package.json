@@ -7,7 +7,7 @@
     "lint": "eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
     "build": "babel src --out-dir lib --source-maps",
     "test": "nyc mocha --opts spec/mocha.opts spec/**/*.spec.jsx",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov --require babel-polyfill mocha | coveralls"
   },
   "files": [
     "lib",
