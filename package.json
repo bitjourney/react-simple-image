@@ -6,7 +6,7 @@
   "scripts": {
     "test": "nyc mocha --opts spec/mocha.opts  spec/**/*.spec.jsx",
     "lint": "eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
-    "build": "babel src --out-dir lib --source-map",
+    "build": "babel src --out-dir lib --source-maps",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "files": [
