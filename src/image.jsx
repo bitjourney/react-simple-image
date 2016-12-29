@@ -1,5 +1,10 @@
 import React from 'react';
-import Matcher from './matcher';
+import {
+  matchDescriptor,
+  matchWidthDescriptor,
+  matchPixelDescriptor,
+  isWidthDescriptorOnly,
+} from '../src/matcher';
 
 export default class Image extends React.Component {
   static get propTypes() {
@@ -7,7 +12,7 @@ export default class Image extends React.Component {
       alt: React.PropTypes.string.isRequired,
       className: React.PropTypes.string,
       srcSet: React.PropTypes.objectOf((props, propName, componentName) => {
-        if (!Matcher.matchDescriptor(propName)) {
+        if (!matchDescriptor(propName)) {
           return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
         }
         return null;
@@ -22,7 +27,7 @@ export default class Image extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      widthDescriptorOnly: Matcher.isWidthDescriptorOnly(this.props.srcSet),
+      widthDescriptorOnly: isWidthDescriptorOnly(this.props.srcSet),
     };
   }
 
@@ -30,7 +35,7 @@ export default class Image extends React.Component {
     // OPTIMIZE: this logic could be refactored for performance reason
     if (nextProps.srcSet) {
       this.setState({
-        widthDescriptorOnly: Matcher.isWidthDescriptorOnly(nextProps.srcSet),
+        widthDescriptorOnly: isWidthDescriptorOnly(nextProps.srcSet),
       });
     }
   }
@@ -48,10 +53,9 @@ export default class Image extends React.Component {
   }
 
   buildSrcSet() {
-    const matcher = this.state.widthDescriptorOnly
-      ? Matcher.matchWidthDescriptor : Matcher.matchPixelDescriptor;
+    const matcher = this.state.widthDescriptorOnly ? matchWidthDescriptor : matchPixelDescriptor;
     return Object.keys(this.props.srcSet)
-      .filter(descriptor => matcher.call(this, descriptor))
+      .filter(matcher)
       .map(descriptor => `${this.props.srcSet[descriptor]} ${descriptor}`);
   }
 

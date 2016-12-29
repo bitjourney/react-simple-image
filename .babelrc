@@ -4,5 +4,12 @@
     "react",
     "power-assert"
   ],
+  "env": {
+    "test": {
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  },
   "sourceMaps": true
 }
