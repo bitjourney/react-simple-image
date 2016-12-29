@@ -6,6 +6,7 @@ machine:
   environment:
     YARN_VERSION: 0.17.10
     PATH: "${PATH}:${HOME}/.yarn/bin"
+    NODE_ENV: test
 
 dependencies:
   cache_directories:
