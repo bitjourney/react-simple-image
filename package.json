@@ -4,9 +4,10 @@
   "description": "responsive <img> tag with cleaner srcset/sizes interface.",
   "main": "lib/image.js",
   "scripts": {
-    "test": "$(npm bin)/mocha --opts spec/mocha.opts  spec/**/*.spec.jsx",
-    "lint": "$(npm bin)/eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
-    "build": "babel src --out-dir lib --source-map"
+    "test": "mocha --opts spec/mocha.opts  spec/**/*.spec.jsx",
+    "lint": "eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
+    "build": "babel src --out-dir lib --source-map",
+    "coverage": "nyc report"
   },
   "files": [
     "lib",
@@ -46,5 +47,33 @@
   },
   "peerDependencies": {
     "react": "^15.4.1"
+  },
+  "nyc": {
+    "lines": 95,
+    "statements": 95,
+    "functions": 95,
+    "branches": 95,
+    "include": [
+      "src/**/*.{js,jsx}",
+      "spec/**/*.{js,jsx}"
+    ],
+    "exclude": [
+      "lib/"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "extension": [
+      ".jsx",
+      ".es6"
+    ],
+    "reporter": [
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "cache": true,
+    "all": true,
+    "check-coverage": true
   }
 }
