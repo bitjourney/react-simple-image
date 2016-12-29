@@ -22,3 +22,4 @@ dependencies:
 test:
   override:
     - yarnpkg test
+    - yarnpkg coverage
