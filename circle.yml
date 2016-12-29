@@ -21,4 +21,5 @@ dependencies:
 
 test:
   override:
+    - mkdir .nyc_output
     - yarnpkg coverage
