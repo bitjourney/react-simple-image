@@ -43,7 +43,7 @@ export default class Image extends React.Component {
   buildSrcSet() {
     const matcher = this.state.widthDescriptorOnly ? matchWidthDescriptor : matchPixelDescriptor;
     return Object.keys(this.props.srcSet)
-      .filter(descriptor => matcher.call(this, descriptor))
+      .filter(matcher)
       .map(descriptor => `${this.props.srcSet[descriptor]} ${descriptor}`);
   }
 
