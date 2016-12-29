@@ -16,6 +16,9 @@ npm-debug.log
 # eslint
 .eslintcache
 
+# coverage
+.nyc_output
+
 # app
 lib
 
