@@ -39,7 +39,6 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
-    "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "mocha-lcov-reporter": "^1.2.0",
     "nyc": "^10.0.0",
@@ -74,7 +73,6 @@
     ],
     "sourceMap": false,
     "instrument": false,
-    "cache": true,
     "all": true,
     "check-coverage": true
   }
