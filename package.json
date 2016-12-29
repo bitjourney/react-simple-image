@@ -4,10 +4,10 @@
   "description": "responsive <img> tag with cleaner srcset/sizes interface.",
   "main": "lib/image.js",
   "scripts": {
-    "test": "nyc mocha --opts spec/mocha.opts  spec/**/*.spec.jsx",
     "lint": "eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
     "build": "babel src --out-dir lib --source-maps",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "test": "nyc mocha --opts spec/mocha.opts spec/**/*.spec.jsx",
+    "coverage": "nyc mocha --opts spec/mocha.opts spec/**/*.spec.jsx --report lcovonly && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
   "files": [
     "lib",
