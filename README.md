@@ -1,4 +1,4 @@
-# react-simple-image [![CircleCI](https://circleci.com/gh/bitjourney/react-simple-image/tree/master.png?style=png)](https://circleci.com/gh/bitjourney/react-simple-image/tree/master)
+# react-simple-image [![CircleCI](https://circleci.com/gh/bitjourney/react-simple-image/tree/master.svg?style=svg)](https://circleci.com/gh/bitjourney/react-simple-image/tree/master)
 
 `react-simple-image` is a React Components of `<img>` tag with cleaner srcset/sizes interface.
 
