@@ -6,6 +6,7 @@ export default class Image extends React.Component {
     return {
       alt: React.PropTypes.string.isRequired,
       className: React.PropTypes.string,
+      src: React.PropTypes.string.isRequired,
       srcSet: React.PropTypes.objectOf((props, propName, componentName) => {
         if (!matchDescriptor(propName)) {
           return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
@@ -26,18 +27,6 @@ export default class Image extends React.Component {
         return matchWidthDescriptor(descriptor);
       }),
     };
-  }
-
-  getSrc() {
-    /*
-     * TODO: object properties does not specify order,
-     * so the result could change for each browser implementation.
-     *
-     * see discussion below:
-     * https://github.com/bitjourney/react-simple-image/pull/4/files#r94013960
-     */
-    const firstSrcSetKey = Object.keys(this.props.srcSet)[0];
-    return this.props.srcSet[firstSrcSetKey];
   }
 
   buildSrcSet() {
@@ -64,7 +53,7 @@ export default class Image extends React.Component {
       <img
         alt={this.props.alt}
         className={this.props.className}
-        src={this.getSrc()}
+        src={this.props.src}
         srcSet={this.buildSrcSet()}
         sizes={this.buildSizes()}
       />
