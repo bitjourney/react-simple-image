@@ -20,13 +20,14 @@ The `<Image/>` component has two descriptor type:
 
 - `alt - String` : (Required) alt text
 - `className - String` : (Optional) additional className
-- `srcSet - Array` : (Required) src set
-  - `Object`
-    - `key: descriptor - Regexp`: width descriptor (e.g. 360w, 720w) or pixel descriptor (e.g. 1x, 1.5x, or 2x)
-    - `value: src - String`: image paths/urls
+- `src - String` : (Required) src attribute
+- `srcSet - Object` : (Required) src set
+  - `key: descriptor - Regexp`: width descriptor (e.g. 360w, 720w) or pixel descriptor (e.g. 1x, 1.5x, or 2x)
+  - `value: src - String`: image paths/urls
 - `sizes - Array` : (Optional) sizez set for width descriptor
-  - `size - String`: image size
-  - `mediaCondition - String`: to apply on the image size
+  - `Object`
+    - `size - String`: image size
+    - `mediaCondition - String`: to apply on the image size
 
 Here are some tips:
 
@@ -43,11 +44,12 @@ For more information, please reach out for:
 <Image
   alt='example'
   className='additional-className'
-  srcSet={[
-    {'360w', 'example-small.svg'},
-    {'720w', 'example-middle.svg'},
-    {'1200w', 'example-large.svg'},
-  ]},
+  src='example-small.png',
+  srcSet={{
+    '360w': 'example-small.png',
+    '720w': 'example-middle.png',
+    '1200w': 'example-large.png',
+  }},
   sizes={[
     {size: '100vw', mediaCondition: '(max-width: 30em)'},
     {size: '50vw', mediaCondition: '(max-width: 50em)'},
@@ -65,11 +67,12 @@ For more information, please reach out for:
 ```jsx
 <Image
   alt='example'
-  srcSet={[
-    {'360w', 'example-small.svg'},
-    {'720w', 'example-middle.svg'},
-    {'1200w', 'example-large.svg'},
-  ]},
+  src='example-small.png',
+  srcSet={{
+    '360w': 'example-small.png',
+    '720w': 'example-middle.png',
+    '1200w': 'example-large.png',
+  }},
   sizes={[
     {size: '100vw', mediaCondition: '(max-width: 30em)'},
     {size: '50vw', mediaCondition: '(max-width: 50em)'},
@@ -81,13 +84,13 @@ For more information, please reach out for:
 #### Rendered HTML
 
 ```html
-<img 
-  alt="example" 
-  src="example-small.png" 
-  srcset="example-small.png 360w,example-middle.png 720w,example-large.png 1200w" 
-  sizes="(max-width: 30em) 100vw,(max-width: 50em) 50vw,calc(33vw - 100px)" 
-  data-reactroot="" 
-  data-reactid="1" 
+<img
+  alt="example"
+  src="example-small.png"
+  srcset="example-small.png 360w,example-middle.png 720w,example-large.png 1200w"
+  sizes="(max-width: 30em) 100vw,(max-width: 50em) 50vw,calc(33vw - 100px)"
+  data-reactroot=""
+  data-reactid="1"
   data-react-checksum="1197296813"/>
 ```
 
@@ -99,23 +102,24 @@ For more information, please reach out for:
 <Image
   alt='example'
   className='additional-className'
-  srcSet={[
-    {'1x', 'example.svg'},
-    {'2x', 'example@2x.svg'},
-  ]},
+  src='example.png',
+  srcSet={{
+    '1x': 'example.png',
+    '2x': 'example@2x.png',
+  }},
   />
 ```
 
 #### Rendered HTML
 
 ```html
-<img 
-  alt="example" 
-  class="additional-className" 
-  src="example.png" 
-  srcset="example.png 1x,example@2x.png 2x" 
-  data-reactroot="" 
-  data-reactid="1" 
+<img
+  alt="example"
+  class="additional-className"
+  src="example.png"
+  srcset="example.png 1x,example@2x.png 2x"
+  data-reactroot=""
+  data-reactid="1"
   data-react-checksum="1897738717"/>
 ```
 

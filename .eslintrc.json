@@ -8,5 +8,9 @@
   ],
   "rules": {
     "arrow-body-style": 0
+  },
+  "env": {
+    "es6": true,
+    "mocha": true
   }
 }
