@@ -7,7 +7,8 @@
     "lint": "eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
     "build": "babel src --out-dir lib --source-maps",
     "test": "nyc mocha --opts spec/mocha.opts spec/**/*.spec.jsx",
-    "coveralls": "nyc report --reporter=text-lcov | $(npm bin)/coveralls"
+    "coveralls": "nyc report --reporter=text-lcov | $(npm bin)/coveralls",
+    "prepublish": "yarnpkg build"
   },
   "files": [
     "lib",
