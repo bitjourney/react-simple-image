@@ -1,6 +1,6 @@
 {
   "name": "react-simple-image",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "responsive <img> tag with cleaner srcset/sizes interface.",
   "main": "lib/image.js",
   "scripts": {
