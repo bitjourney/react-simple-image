@@ -10,6 +10,7 @@
     "coveralls": "nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
     "story:build": "build-storybook -c .storybook -o build",
+    "story:deploy": "sh bin/story-deploy",
     "prepublish": "yarnpkg build"
   },
   "files": [
