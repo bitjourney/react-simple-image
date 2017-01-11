@@ -56,7 +56,7 @@ export default class Image extends React.Component {
         src={this.props.src}
         srcSet={this.buildSrcSet()}
         sizes={this.buildSizes()}
-      />
+        />
     );
   }
 }
