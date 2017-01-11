@@ -8,6 +8,7 @@
     "build": "babel src --out-dir lib --source-maps",
     "test": "nyc mocha --opts spec/mocha.opts spec/**/*.spec.jsx",
     "coveralls": "nyc report --reporter=text-lcov | $(npm bin)/coveralls",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "prepublish": "yarnpkg build"
   },
   "files": [
