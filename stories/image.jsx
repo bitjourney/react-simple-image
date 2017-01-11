@@ -39,8 +39,8 @@ storiesOf('<Image />', module)
           '900w': photo900,
         }}
         sizes={[
-          { size: '100vw', mediaCondition: '(max-width: 30em)' },
-          { size: '50vw', mediaCondition: '(max-width: 50em)' },
+          { size: '100vw', mediaCondition: '(max-width: 480px)' },
+          { size: '50vw', mediaCondition: '(max-width: 1200px)' },
           { size: 'calc(33vw - 100px)' },
         ]}
         />
