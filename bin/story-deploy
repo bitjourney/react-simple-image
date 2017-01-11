@@ -20,4 +20,4 @@ git push $BRANCH `git subtree split --prefix build deploy-tmp`:master --force
 
 git checkout master
 git branch -D deploy-tmp
-echo "build/" >> ./.gitignore
+echo "build" >> ./.gitignore

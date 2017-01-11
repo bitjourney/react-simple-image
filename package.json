@@ -9,7 +9,7 @@
     "test": "nyc mocha --opts spec/mocha.opts spec/**/*.spec.jsx",
     "coveralls": "nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
-    "story:build": "build-storybook -c .storybook -o doc",
+    "story:build": "build-storybook -c .storybook -o build",
     "prepublish": "yarnpkg build"
   },
   "files": [
