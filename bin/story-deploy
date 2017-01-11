@@ -1,0 +1,23 @@
+#!/bin/bash
+
+BASEDIR=$(dirname $0)
+BRANCH=ghpages
+
+rm -Rf build/
+
+yarn story:build
+
+git ls-remote --exit-code $BRANCH
+if test $? != 0; then
+    git remote add $BRANCH git@github.com:bitjourney/react-simple-image.git
+fi
+
+git checkout -b deploy-tmp
+sed -i "" '/build/d' ./.gitignore
+git add .
+git commit -m "Add /build for deploy on deploy-tmp branch"
+git push $BRANCH `git subtree split --prefix build deploy-tmp`:master --force
+
+git checkout master
+git branch -D deploy-tmp
+echo "build/" >> ./.gitignore
