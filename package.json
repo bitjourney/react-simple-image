@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/bitjourney/react-simple-image#readme",
   "devDependencies": {
+    "@kadira/storybook": "^2.35.2",
     "babel-cli": "^6.14.0",
     "babel-plugin-istanbul": "^3.0.0",
     "babel-preset-es2015": "^6.18.0",
