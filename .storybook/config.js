@@ -1,8 +1,7 @@
-import { configure } from '@kadira/storybook';
+import { configure, addDecorator } from '@kadira/storybook';
 
 function loadStories() {
-  require('../stories/index.js');
-  // You can require as many stories as you need.
+  require('../stories/image.jsx');
 }
 
 configure(loadStories, module);
