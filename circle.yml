@@ -22,5 +22,5 @@ dependencies:
 
 test:
   override:
-    - yarnpkg test
+    - yarnpkg test:coverage
     - yarnpkg coveralls
