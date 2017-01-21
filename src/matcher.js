@@ -16,8 +16,6 @@ export function matchDescriptor(str) {
 }
 
 export function isWidthDescriptorOnly(srcSet) {
-  return Object.keys(srcSet).every((descriptor) => {
-    return matchWidthDescriptor(descriptor);
-  });
+  return Object.keys(srcSet).every(descriptor => matchWidthDescriptor(descriptor));
 }
 
