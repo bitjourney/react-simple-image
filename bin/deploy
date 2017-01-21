@@ -1,0 +1,18 @@
+#!/bin/bash
+
+BASEDIR=$(dirname $0)
+BRANCH=gh-pages
+DIR=doc
+
+rm -Rf $DIR
+
+yarn story:build
+
+git checkout -b $BRANCH
+git add $DIR -f
+git commit -m "Deploy docs/"
+git push origin `git subtree split --prefix $DIR master`:$BRANCH --force
+git rm -r $DIR
+
+git checkout -
+git branch -d $BRANCH

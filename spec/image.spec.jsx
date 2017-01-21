@@ -8,6 +8,7 @@ describe('Image', () => {
     it('should render an expected html string without sizes option', () => {
       const props = {
         alt: 'example',
+        src: 'example-small.png',
         srcSet: {
           '360w': 'example-small.png',
           '720w': 'example-middle.png',
@@ -24,6 +25,7 @@ describe('Image', () => {
     it('should render an expected html string without option', () => {
       const props = {
         alt: 'example',
+        src: 'example-small.png',
         srcSet: {
           '360w': 'example-small.png',
           '720w': 'example-middle.png',
@@ -49,6 +51,7 @@ describe('Image', () => {
       const props = {
         alt: 'example',
         className: 'additional-className',
+        src: 'example.png',
         srcSet: {
           '1x': 'example.png',
           '2x': 'example@2x.png',
@@ -65,6 +68,7 @@ describe('Image', () => {
     it('should not render an expected html string with sizes', () => {
       const props = {
         alt: 'example',
+        src: 'example.png',
         srcSet: {
           '1x': 'example.png',
           '2x': 'example@2x.png',
@@ -88,6 +92,7 @@ describe('Image', () => {
     it('should render pixel descriptor and not render width descriptor', () => {
       const props = {
         alt: 'example',
+        src: 'example-small.png',
         srcSet: {
           '360w': 'example-small.png',
           '720w': 'example-middle.png',
@@ -108,6 +113,7 @@ describe('Image', () => {
     it('should throw error into console', () => {
       const props = {
         alt: 'example',
+        src: 'example.png',
         srcSet: {
           invalid: 'example.png',
         },
