@@ -41,6 +41,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.18.0",
     "coveralls": "^2.11.15",
+    "enzyme": "^2.7.0",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
@@ -81,8 +82,5 @@
     "instrument": false,
     "all": true,
     "check-coverage": true
-  },
-  "dependencies": {
-    "enzyme": "^2.7.0"
   }
 }
