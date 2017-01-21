@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
     "build": "babel src --out-dir lib --source-maps",
-    "test": "nyc mocha --opts spec/mocha.opts spec/**/*.spec.jsx",
+    "test": "mocha --opts spec/mocha.opts spec/**/*.spec.jsx --reporter dot",
+    "test:spec": "mocha --opts spec/mocha.opts spec/**/*.spec.jsx --reporter spec",
+    "test:coverage": "nyc mocha --opts spec/mocha.opts spec/**/*.spec.jsx",
     "coveralls": "nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
     "story:build": "build-storybook -c .storybook -o doc",
