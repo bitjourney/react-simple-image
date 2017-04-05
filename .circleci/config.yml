@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: node:6.10.0
+
+    environment:
+      NODE_ENV: test
+
+    working_directory: /home/ubuntu/workspace
+
+    parallelism: 1
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          name: Restore Cache for Yarn
+          keys:
+            - yarn-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-{{ .Branch }}-
+
+      - run:
+          name: Install Dependencies
+          command: yarn install --no-emoji --no-progress
+
+      - run:
+          name: Run Test
+          command: yarn test
+
+      - run:
+          name: Report Coverage
+          command: yarn coveralls
+
+      - save_cache:
+          name: Save Cache for Yarn
+          key: yarn-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - /home/ubuntu/workspace/node_modules
+            - /home/ubuntu/.cache/yarn/
