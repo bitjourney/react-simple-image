@@ -6,11 +6,16 @@
   "scripts": {
     "lint": "eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
     "build": "babel src --out-dir lib --source-maps",
+    "pretest": "yarn build",
     "test": "nyc mocha --opts spec/mocha.opts spec/**/*.spec.jsx",
     "coveralls": "nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
     "story:build": "build-storybook -c .storybook -o build",
-    "prepublish": "yarnpkg build"
+    "prepublish": "yarn build"
+  },
+  "engines": {
+    "node": "6.10.0",
+    "yarn": "0.21.3"
   },
   "files": [
     "lib",
