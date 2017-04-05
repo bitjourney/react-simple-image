@@ -4,6 +4,9 @@ jobs:
     docker:
       - image: node:6.10.0
 
+    environment:
+      NODE_ENV: test
+
     working_directory: /home/ubuntu/workspace
 
     parallelism: 1
