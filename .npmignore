@@ -11,9 +11,15 @@ npm-debug.log
 
 # tests
 test/
+spec/
 
 # doc
 README.md
 
 # misc
 circle.yml
+.coveralls.yml
+stories/
+bin/
+.vscode/
+.circleci/
