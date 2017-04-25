@@ -7,12 +7,13 @@
     "lint": "eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
     "build": "babel src --out-dir lib --source-maps",
     "pretest": "yarn build",
-    "test": "NODE_ENV=test nyc mocha --opts spec/mocha.opts spec/**/*.spec.jsx",
+    "test": "NODE_ENV=test nyc mocha --opts spec/mocha.opts spec",
+    "test:min": "NODE_ENV=test mocha --opts spec/mocha.opts --reporter min spec",
     "test:watch": "NODE_ENV=test mocha --opts spec/mocha.opts --reporter min --watch spec",
     "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
     "story:build": "build-storybook -c .storybook -o doc",
-    "doc:deploy": "sh bin/deploy-doc",
+    "story:deploy": "sh bin/deploy-doc",
     "prepublish": "yarn build"
   },
   "engines": {
