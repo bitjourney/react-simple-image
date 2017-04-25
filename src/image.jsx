@@ -1,5 +1,10 @@
 import React from 'react';
-import { matchDescriptor, matchWidthDescriptor, matchPixelDescriptor } from './matcher';
+import {
+  matchDescriptor,
+  matchWidthDescriptor,
+  matchPixelDescriptor,
+  isWidthDescriptorOnly,
+} from '../src/matcher';
 
 export default class Image extends React.Component {
   static get propTypes() {
@@ -23,10 +28,16 @@ export default class Image extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      widthDescriptorOnly: Object.keys(this.props.srcSet).every((descriptor) => {
-        return matchWidthDescriptor(descriptor);
-      }),
+      widthDescriptorOnly: isWidthDescriptorOnly(this.props.srcSet),
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.srcSet) {
+      this.setState({
+        widthDescriptorOnly: isWidthDescriptorOnly(nextProps.srcSet),
+      });
+    }
   }
 
   buildSrcSet() {

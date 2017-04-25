@@ -22,4 +22,5 @@ npm-debug.log
 # app
 lib
 build
+doc
 coverage

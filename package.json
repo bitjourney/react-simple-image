@@ -7,10 +7,13 @@
     "lint": "eslint src/**/*.{js,jsx} spec/**/*.{js,jsx}",
     "build": "babel src --out-dir lib --source-maps",
     "pretest": "yarn build",
-    "test": "NODE_ENV=test nyc mocha --opts spec/mocha.opts spec/**/*.spec.jsx",
+    "test": "NODE_ENV=test nyc mocha --opts spec/mocha.opts spec",
+    "test:min": "NODE_ENV=test mocha --opts spec/mocha.opts --reporter min spec",
+    "test:watch": "NODE_ENV=test mocha --opts spec/mocha.opts --reporter min --watch spec",
     "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
-    "story:build": "build-storybook -c .storybook -o build",
+    "story:build": "build-storybook -c .storybook -o doc",
+    "story:deploy": "sh bin/deploy-doc",
     "prepublish": "yarn build"
   },
   "engines": {
@@ -43,6 +46,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.18.0",
     "coveralls": "^2.11.15",
+    "enzyme": "^2.7.0",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
@@ -52,6 +56,7 @@
     "nyc": "^10.0.0",
     "power-assert": "^1.4.2",
     "react": "^15.4.1",
+    "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.1"
   },
   "peerDependencies": {

@@ -1,5 +1,10 @@
 import assert from 'power-assert';
-import { matchDescriptor, matchWidthDescriptor, matchPixelDescriptor } from '../src/matcher';
+import {
+  matchDescriptor,
+  matchWidthDescriptor,
+  matchPixelDescriptor,
+  isWidthDescriptorOnly,
+} from '../src/matcher';
 
 describe('Matcher', () => {
   const validWidths = [
@@ -64,6 +69,28 @@ describe('Matcher', () => {
     it('should not match with invalid descriptor', () => {
       invalidDescriptor.concat(validWidths, invalidPixels)
         .map(str => assert(!matchPixelDescriptor(str)));
+    });
+  });
+
+  describe('#isWidthDescriptorOnly', () => {
+    it('should match with pixel descriptor', () => {
+      const srcSet = {
+        '360w': 'example-small.png',
+        '720w': 'example-middle.png',
+        '1200w': 'example-large.png',
+      };
+      assert(isWidthDescriptorOnly(srcSet));
+    });
+
+    it('should not match with invalid descriptor', () => {
+      const srcSet = {
+        '360w': 'example-small.png',
+        '720w': 'example-middle.png',
+        '1200w': 'example-large.png',
+        '1x': 'example.png',
+        '2x': 'example@2x.png',
+      };
+      assert(!isWidthDescriptorOnly(srcSet));
     });
   });
 });

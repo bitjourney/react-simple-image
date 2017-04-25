@@ -1,9 +1,35 @@
+import React, { createElement } from 'react';
+import { shallow } from 'enzyme';
 import assert from 'power-assert';
 import { renderToString } from 'react-dom/server';
-import { createElement } from 'react';
 import Image from '../src/image';
 
 describe('Image', () => {
+  describe('#componentWillReceiveProps change state on props change', () => {
+    const props = {
+      alt: 'example',
+      src: 'example-small.png',
+      srcSet: {
+        '360w': 'example-small.png',
+        '720w': 'example-middle.png',
+        '1200w': 'example-large.png',
+      },
+    };
+    const wrapper = shallow(<Image {...props} />);
+    const prevState = wrapper.state();
+    assert(prevState.widthDescriptorOnly === true);
+
+    const pixelSrcSet = {
+      '1x': 'example.png',
+      '2x': 'example@2x.png',
+    };
+    props.srcSet = pixelSrcSet;
+    wrapper.setProps(props);
+
+    const nextState = wrapper.state();
+    assert(nextState.widthDescriptorOnly === false);
+  });
+
   describe('with width descriptor', () => {
     it('should render an expected html string without sizes option', () => {
       const props = {

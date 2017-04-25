@@ -1,2 +1,4 @@
---require babel-register
 --recursive
+--check-leaks
+--reporter dot
+--compilers js:babel-core/register,jsx:babel-core/register

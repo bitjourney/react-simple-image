@@ -14,3 +14,8 @@ export function matchPixelDescriptor(str) {
 export function matchDescriptor(str) {
   return REGEXP_DESCRIPTOR_WIDTH_AND_PIXEL.test(str);
 }
+
+export function isWidthDescriptorOnly(srcSet) {
+  return Object.keys(srcSet).every(descriptor => matchWidthDescriptor(descriptor));
+}
+

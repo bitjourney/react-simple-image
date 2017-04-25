@@ -2,6 +2,27 @@
 
 `react-simple-image` is a React Components of `<img>` tag with cleaner srcset/sizes interface.
 
+<!-- TOC depthFrom:2 -->
+
+- [Demo](#demo)
+- [Install](#install)
+- [Usage](#usage)
+  - [React Component](#react-component)
+- [Example](#example)
+  - [width descriptor](#width-descriptor)
+    - [React Component](#react-component-1)
+    - [Rendered HTML](#rendered-html)
+  - [pixel descriptor](#pixel-descriptor)
+    - [React Component](#react-component-2)
+    - [Rendered HTML](#rendered-html-1)
+- [License](#license)
+
+<!-- /TOC -->
+
+## Demo
+
+https://bitjourney.github.io/react-simple-image/
+
 ## Install
 
 ```bash
