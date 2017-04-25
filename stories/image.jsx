@@ -9,6 +9,8 @@ import photo2xBw from './images/astronaut_bw@2x.jpg';
 import photo300 from './images/react-300.png';
 import photo900 from './images/react-900.png';
 
+import './image.css';
+
 const srcSetPixel = {
   '1x': photo1x,
   '2x': photo2x,
@@ -87,7 +89,7 @@ storiesOf('<Image />', module)
           >
             <Image
               alt="react-simple-image storybook component"
-              src={photo300}
+              src={photo1x}
               className="additional-className"
               srcSet={this.state.srcSet}
             />
@@ -97,7 +99,42 @@ storiesOf('<Image />', module)
     }
     return <Wrapper />;
   })
-  .add('change className onClick', () => {
+  .add('change className on MouseEvent fired', () => {
+    // eslint-disable-next-line react/no-multi-comp
+    class Wrapper extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { className: 'additional-classname ' };
+      }
 
+      handleMouseEnter() {
+        this.setState({
+          className: 'additional-classname is-hidden',
+        });
+      }
+
+      handleMouseLeave() {
+        this.setState({
+          className: 'additional-classname',
+        });
+      }
+
+      render() {
+        return (
+          <div
+            onMouseEnter={() => this.handleMouseEnter()}
+            onMouseLeave={() => this.handleMouseLeave()}
+          >
+            <Image
+              alt="react-simple-image storybook component"
+              src={photo1x}
+              className={this.state.className}
+              srcSet={srcSetPixel}
+            />
+          </div>
+        );
+      }
+    }
+    return <Wrapper />;
   })
   ;
