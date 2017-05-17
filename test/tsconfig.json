@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "baseUrl": "../",
+        "checkJs": false,
+        "lib": [
+            "es6"
+        ],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noEmitOnError": true,
+        "outDir": "build/",
+        "paths": {
+            "*": [
+                "*"
+            ]
+        },
+        "removeComments": true,
+        "sourceMap": true,
+        "strictNullChecks": true,
+        "target": "es5",
+        "jsx": "react"
+    }
+}

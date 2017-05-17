@@ -1,0 +1,11 @@
+--compilers ts:ts-node/register,tsx:ts-node/register
+
+--require source-map-support/register
+--require ./test/resolver.js
+
+--check-leaks
+--full-trace
+--recursive
+--timeout 1000
+
+test/**/*.spec.{ts,tsx}
