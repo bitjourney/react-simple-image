@@ -1,7 +1,7 @@
 import * as assert from 'power-assert';
 import { renderToString } from 'react-dom/server';
 import { createElement } from 'react';
-import Image from 'src/Image.jsx';
+import Image from 'src/Image';
 
 describe('Image', () => {
   describe('with width descriptor', () => {
