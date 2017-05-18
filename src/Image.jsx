@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { matchDescriptor, matchWidthDescriptor, matchPixelDescriptor } from './matcher';
 
 export default class Image extends React.Component {

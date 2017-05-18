@@ -4,5 +4,13 @@
   "editor.insertSpaces": true,
   "files.trimTrailingWhitespace": true,
   "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "**/build/": true,
+    "lib": true
+  },
+  "search.exclude": {
+    "coverage": true,
+    ".nyc_output": true
+  },
   "eslint.autoFixOnSave": true
 }
