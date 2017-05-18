@@ -26,7 +26,7 @@ jobs:
 
       - run:
           name: Run Test
-          command: yarn test
+          command: yarn test:coverage
 
       - run:
           name: Report Coverage

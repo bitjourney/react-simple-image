@@ -7,7 +7,7 @@
     "build": "babel src --out-dir lib --source-maps",
     "lint": "eslint src/**/*.{js,jsx} test/**/*.{js,jsx}",
     "test": "NODE_PATH=. NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json mocha",
-    "test:coverage": "TS_NODE_PROJECT=test/tsconfig.json mocha",
+    "test:coverage": "NODE_PATH=. NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json nyc mocha",
     "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
     "story:build": "build-storybook -c .storybook -o build",
@@ -79,7 +79,9 @@
       "babel-register"
     ],
     "extension": [
-      ".jsx"
+      ".jsx",
+      ".ts",
+      ".tsx"
     ],
     "reporter": [
       "text"
