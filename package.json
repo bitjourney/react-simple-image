@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir lib --source-maps",
     "lint": "eslint src/**/*.{js,jsx} test/**/*.{js,jsx}",
-    "test": "NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json mocha",
+    "test": "NODE_PATH=. NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json mocha",
     "test:coverage": "TS_NODE_PROJECT=test/tsconfig.json mocha",
     "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
@@ -58,7 +58,6 @@
     "react-dom": "^15.4.1",
     "source-map-support": "^0.4.15",
     "ts-node": "^3.0.4",
-    "tsconfig-paths": "^2.1.2",
     "typescript": "^2.3.2"
   },
   "peerDependencies": {
