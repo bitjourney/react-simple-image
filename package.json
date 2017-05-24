@@ -90,5 +90,8 @@
     "instrument": false,
     "all": true,
     "check-coverage": true
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10"
   }
 }
