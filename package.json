@@ -61,6 +61,7 @@
     "typescript": "^2.3.2"
   },
   "peerDependencies": {
+    "prop-types": "^15.5.10",
     "react": "^15.4.1"
   },
   "nyc": {
@@ -90,8 +91,5 @@
     "instrument": false,
     "all": true,
     "check-coverage": true
-  },
-  "dependencies": {
-    "prop-types": "^15.5.10"
   }
 }
