@@ -1,21 +1,22 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import { matchDescriptor, matchWidthDescriptor, matchPixelDescriptor } from './matcher';
 
 export default class Image extends React.Component {
   static get propTypes() {
     return {
-      alt: React.PropTypes.string.isRequired,
-      className: React.PropTypes.string,
-      src: React.PropTypes.string.isRequired,
-      srcSet: React.PropTypes.objectOf((props, propName, componentName) => {
+      alt: PropTypes.string.isRequired,
+      className: PropTypes.string,
+      src: PropTypes.string.isRequired,
+      srcSet: PropTypes.objectOf((props, propName, componentName) => {
         if (!matchDescriptor(propName)) {
           return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
         }
         return null;
       }),
-      sizes: React.PropTypes.arrayOf(React.PropTypes.shape({
-        size: React.PropTypes.string.isRequired,
-        mediaCondition: React.PropTypes.string,
+      sizes: PropTypes.arrayOf(PropTypes.shape({
+        size: PropTypes.string.isRequired,
+        mediaCondition: PropTypes.string,
       })),
     };
   }
