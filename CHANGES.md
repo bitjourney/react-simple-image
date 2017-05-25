@@ -1,5 +1,12 @@
 # The Revision History
 
+## v0.2.0 - 2017/05/25
+
+* Use `prop-types` library instead of `React.PropTypes`
+* Use TypeScript for running tests
+* Update Circle CI config to v2
+* Add react-storybook for Demo
+
 ## v0.1.3 - 2017/01/05
 
 * Fix built file's dependencies path
