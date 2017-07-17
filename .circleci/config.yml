@@ -15,26 +15,25 @@ jobs:
       - checkout
 
       - restore_cache:
-          name: Restore Cache for Yarn
+          name: Restore Cache for Packages
           keys:
-            - yarn-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - yarn-{{ .Branch }}-
+            - npm-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - npm-{{ .Branch }}-
 
       - run:
           name: Install Dependencies
-          command: yarn install --no-emoji --no-progress
+          command: npm install --no-emoji --no-progress
 
       - run:
           name: Run Test
-          command: yarn test:coverage
+          command: npm run test:coverage
 
       - run:
           name: Report Coverage
-          command: yarn coveralls
+          command: npm run coveralls
 
       - save_cache:
-          name: Save Cache for Yarn
-          key: yarn-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          name: Save Cache for Packages
+          key: npm-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - /home/ubuntu/workspace/node_modules
-            - /home/ubuntu/.cache/yarn/
