@@ -11,11 +11,10 @@
     "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
     "story:build": "build-storybook -c .storybook -o build",
-    "prepublish": "yarn build"
+    "prepublish": "npm run build"
   },
   "engines": {
-    "node": "6.10.0",
-    "yarn": "0.21.3"
+    "node": "6.11.1"
   },
   "files": [
     "lib",

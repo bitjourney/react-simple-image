@@ -6,7 +6,10 @@
   "files.autoSave": "onFocusChange",
   "files.exclude": {
     "**/build/": true,
-    "lib": true
+    "lib": true,
+    ".nyc_output": true,
+    "coverage": true,
+    "node_modules": true
   },
   "search.exclude": {
     "coverage": true,
