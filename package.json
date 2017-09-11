@@ -11,7 +11,8 @@
     "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
     "story:build": "build-storybook -c .storybook -o build",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "lint": "tslint --project tsconfig.json && tslint --project test/tsconfig.json"
   },
   "engines": {
     "node": ">= 6"

@@ -1,0 +1,48 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react"
+  ],
+  "defaultSeverity": "error",
+  "rules": {
+    // tslint:recmmended
+    "align": [
+      false
+    ],
+    "arrow-parens": false,
+    "arrow-return-shorthand": false,
+    "comment-format": [
+      false
+    ],
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "max-classes-per-file": [
+      false
+    ],
+    "member-access": [
+      false
+    ],
+    "member-ordering": [
+      false
+    ],
+    "no-consecutive-blank-lines": [
+      false
+    ],
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "quotemark": [
+      false
+    ],
+    // tslint-react
+    "jsx-alignment": false,
+    "jsx-boolean-value": false,
+    "jsx-curly-spacing": true,
+    "jsx-no-bind": false,
+    "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
+    "jsx-no-string-ref": true,
+    "jsx-wrap-multiline": false
+  }
+}
