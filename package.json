@@ -74,9 +74,8 @@
     "reporter": [
       "text"
     ],
-    "sourceMap": false,
-    "instrument": false,
-    "all": true,
+    "sourceMap": true,
+    "instrument": true,
     "check-coverage": true
   }
 }
