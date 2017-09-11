@@ -5,7 +5,6 @@
   "main": "lib/Image.js",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint src/**/*.{js,jsx} test/**/*.{js,jsx}",
     "test": "NODE_PATH=. NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json mocha",
     "test:coverage": "NODE_PATH=. NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json nyc mocha",
     "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | $(npm bin)/coveralls",
