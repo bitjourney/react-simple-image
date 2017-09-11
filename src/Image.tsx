@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { matchDescriptor, matchWidthDescriptor, matchPixelDescriptor } from './matcher';
 
-export default class Image extends React.Component {
+export default class Image extends React.Component<any, any> {
   static get propTypes() {
     return {
       alt: PropTypes.string.isRequired,
@@ -30,7 +30,8 @@ export default class Image extends React.Component {
     };
   }
 
-  buildSrcSet() {
+  // TODO: fix any
+  buildSrcSet(): any {
     const matcher = this.state.widthDescriptorOnly ? matchWidthDescriptor : matchPixelDescriptor;
     return Object.keys(this.props.srcSet)
       .filter(matcher)

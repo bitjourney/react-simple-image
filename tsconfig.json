@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": false,
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noEmitOnError": true,
+        "outDir": "lib/",
+        "removeComments": true,
+        "sourceMap": true,
+        "strictNullChecks": true,
+        "target": "es5",
+        "jsx": "react"
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}

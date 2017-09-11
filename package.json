@@ -4,7 +4,7 @@
   "description": "responsive <img> tag with cleaner srcset/sizes interface.",
   "main": "lib/Image.js",
   "scripts": {
-    "build": "babel src --out-dir lib --source-maps",
+    "build": "tsc",
     "lint": "eslint src/**/*.{js,jsx} test/**/*.{js,jsx}",
     "test": "NODE_PATH=. NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json mocha",
     "test:coverage": "NODE_PATH=. NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json nyc mocha",
