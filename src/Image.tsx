@@ -41,31 +41,28 @@ export default class Image extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
-      widthDescriptorOnly: Object.keys(this.props.srcSet).every((descriptor) => {
-        return matchWidthDescriptor(descriptor);
-      }),
+      widthDescriptorOnly: Object.keys(this.props.srcSet).every((descriptor) => matchWidthDescriptor(descriptor)),
     };
   }
 
-  // TODO: fix any
-  buildSrcSet(): any {
+  buildSrcSet() {
     const matcher = this.state.widthDescriptorOnly ? matchWidthDescriptor : matchPixelDescriptor;
     return Object.keys(this.props.srcSet)
       .filter(matcher)
-      .map(descriptor => `${this.props.srcSet[descriptor]} ${descriptor}`);
+      .map(descriptor => `${this.props.srcSet[descriptor]} ${descriptor}`)
+      .join(',');
   }
 
-  // TODO: fix any
-  buildSizes(): any {
+  buildSizes() {
     if (this.props.sizes && this.state.widthDescriptorOnly) {
       return this.props.sizes.map((size) => {
         if (size.mediaCondition) {
           return `${size.mediaCondition} ${size.size}`;
         }
         return `${size.size}`;
-      });
+      }).join(',');
     }
-    return null;
+    return '';
   }
 
   render() {
