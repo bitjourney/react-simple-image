@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# publish to https://www.npmjs.com/package/react-simple-image
+npm publish
+
+# create&push tags
+VERSION="v`cat package.json | grep '"version":' | cut -d':' -f2 | sed -e 's/[",[:space:]]//g'`"
+git tag -a "${VERSION}" -m "tagged for ${VERSION}"
+git push --tags
