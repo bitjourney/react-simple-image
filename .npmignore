@@ -17,3 +17,6 @@ README.md
 
 # misc
 circle.yml
+
+# Don't include ts files
+src/
