@@ -2,7 +2,7 @@
 
 ## v0.3.0 - 2017/09/12
 
-* Introduce TypeScript and includes '*.d.ts'
+* Introduce TypeScript and includes `*.d.ts`
 * Introduce TSLint
 
 ## v0.2.0 - 2017/05/25
