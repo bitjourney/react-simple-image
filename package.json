@@ -11,7 +11,8 @@
     "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
     "story:build": "build-storybook -c .storybook -o build",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "lint": "tslint --project tsconfig.json && tslint --project test/tsconfig.json"
   },
   "engines": {
     "node": ">= 6"
@@ -47,6 +48,8 @@
     "react-dom": "^15.4.1",
     "source-map-support": "^0.4.15",
     "ts-node": "^3.0.4",
+    "tslint": "^5.7.0",
+    "tslint-react": "^3.2.0",
     "typescript": "^2.3.2"
   },
   "peerDependencies": {

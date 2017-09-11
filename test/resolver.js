@@ -1,5 +1,5 @@
 /* eslint "no-underscore-dangle": "off" */
-const Module = require('module');
+const Module = require("module");
 
 const originalLoader = Module._load;
 const patchedLoader = (request, parent, isMain) => {

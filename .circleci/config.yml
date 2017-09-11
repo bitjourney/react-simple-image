@@ -20,17 +20,10 @@ jobs:
             - npm-{{ .Branch }}-{{ checksum "package-lock.json" }}
             - npm-{{ .Branch }}-
 
-      - run:
-          name: Install Dependencies
-          command: npm install --no-emoji --no-progress
-
-      - run:
-          name: Run Test
-          command: npm run test:coverage
-
-      - run:
-          name: Report Coverage
-          command: npm run coveralls
+      - run: npm install --no-emoji --no-progress
+      - run: npm run lint
+      - run: npm run test:coverage
+      - run: npm run coveralls
 
       - save_cache:
           name: Save Cache for Packages
