@@ -1,8 +1,8 @@
 # The Revision History
 
-## v0.2.1 - 2017/09/12
+## v0.3.0 - 2017/09/12
 
-* Introduce TypeScript
+* Introduce TypeScript and includes '*.d.ts'
 * Introduce TSLint
 
 ## v0.2.0 - 2017/05/25
