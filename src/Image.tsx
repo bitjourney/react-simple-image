@@ -2,12 +2,12 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { matchDescriptor, matchWidthDescriptor, matchPixelDescriptor } from './matcher';
 
-interface Size {
+export interface Size {
   size: string;
   mediaCondition?: string;
 }
 
-interface Props {
+export interface Props {
   alt: string;
   src: string;
   className?: string;
@@ -15,7 +15,7 @@ interface Props {
   sizes?: Size[];
 }
 
-interface State {
+export interface State {
   widthDescriptorOnly: boolean;
 }
 
