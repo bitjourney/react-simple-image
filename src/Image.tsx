@@ -2,7 +2,24 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { matchDescriptor, matchWidthDescriptor, matchPixelDescriptor } from './matcher';
 
-export default class Image extends React.Component<any, any> {
+interface Size {
+  size: string;
+  mediaCondition?: string;
+}
+
+interface Props {
+  alt: string;
+  src: string;
+  className?: string;
+  srcSet?: any;
+  sizes?: Size[];
+}
+
+interface State {
+  widthDescriptorOnly: boolean;
+}
+
+export default class Image extends React.Component<Props, State> {
   static get propTypes() {
     return {
       alt: PropTypes.string.isRequired,
@@ -38,7 +55,8 @@ export default class Image extends React.Component<any, any> {
       .map(descriptor => `${this.props.srcSet[descriptor]} ${descriptor}`);
   }
 
-  buildSizes() {
+  // TODO: fix any
+  buildSizes(): any {
     if (this.props.sizes && this.state.widthDescriptorOnly) {
       return this.props.sizes.map((size) => {
         if (size.mediaCondition) {
