@@ -38,6 +38,7 @@
     "@types/mocha": "^2.2.41",
     "@types/node": "^7.0.18",
     "@types/power-assert": "^1.4.29",
+    "@types/react": "^16.0.5",
     "coveralls": "^2.11.15",
     "mocha": "^3.2.0",
     "nyc": "^10.0.0",
@@ -80,7 +81,5 @@
     "all": true,
     "check-coverage": true
   },
-  "dependencies": {
-    "@types/react": "^16.0.5"
-  }
+  "dependencies": {}
 }
