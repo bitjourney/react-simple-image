@@ -1,5 +1,10 @@
 # The Revision History
 
+## v0.2.1 - 2017/09/12
+
+* Introduce TypeScript
+* Introduce TSLint
+
 ## v0.2.0 - 2017/05/25
 
 * Use `prop-types` library instead of `React.PropTypes`
