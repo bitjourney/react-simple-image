@@ -1,7 +1,7 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { storiesOf } from '@kadira/storybook';
-import Image from '../src/image';
+import Image from '../lib/Image';
 import photo1x from './images/astronaut.jpg';
 import photo2x from './images/astronaut@2x.jpg';
 import photo300 from './images/react-300.png';
