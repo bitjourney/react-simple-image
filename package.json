@@ -58,17 +58,16 @@
     "functions": 90,
     "branches": 90,
     "include": [
-      "src/**/*.{js,jsx}"
+      "src/**/*.{ts,tsx}"
     ],
     "exclude": [
-      "lib/**/*.{js,jsx}",
-      "spec/**/*.spec.{js,jsx}"
+      "lib/**/*",
+      "spec/**/*"
     ],
     "require": [
-      "babel-register"
+      "ts-node/register"
     ],
     "extension": [
-      ".jsx",
       ".ts",
       ".tsx"
     ],
@@ -79,6 +78,5 @@
     "instrument": false,
     "all": true,
     "check-coverage": true
-  },
-  "dependencies": {}
+  }
 }
