@@ -1,4 +1,4 @@
-VERSION="v`cat package.json | grep '"version":' | cut -d':' -f2 | sed -e 's/[",[:space:]]//g'`"
+VERSION:="v`node -pe 'require("./package.json").version'`"
 
 publish:
 	@npm publish
