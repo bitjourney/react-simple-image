@@ -90,5 +90,8 @@
     "instrument": false,
     "all": true,
     "check-coverage": true
+  },
+  "dependencies": {
+    "@types/react": "^16.0.5"
   }
 }
