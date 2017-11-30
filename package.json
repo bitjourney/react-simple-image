@@ -6,13 +6,14 @@
   "types": "lib/Image.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "NODE_PATH=. NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json mocha",
-    "test:coverage": "NODE_PATH=. NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json nyc mocha",
+    "test": "NODE_ENV=test mocha",
+    "test:coverage": "NODE_ENV=test nyc mocha",
     "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | $(npm bin)/coveralls",
     "story:start": "start-storybook -p 9001 -c .storybook",
     "story:build": "build-storybook -c .storybook -o build",
     "prepublish": "npm run build",
-    "lint": "tslint --project tsconfig.json && tslint --project test/tsconfig.json"
+    "lint": "tslint --type-check --project tsconfig.json",
+    "lint:fix": "tslint --fix --type-check --project tsconfig.json"
   },
   "engines": {
     "node": ">= 6"
@@ -28,33 +29,38 @@
   "keywords": [
     "HTML5"
   ],
-  "author": "kenju",
+  "author": "Bit Journey, Inc. (https://bitjourney.com/)",
+  "contributors": [
+    "gfx",
+    "kenju"
+  ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/bitjourney/react-simple-image/issues"
   },
   "homepage": "https://github.com/bitjourney/react-simple-image#readme",
   "devDependencies": {
-    "@kadira/storybook": "^2.35.2",
-    "@types/mocha": "^2.2.41",
-    "@types/node": "^7.0.18",
-    "@types/power-assert": "^1.4.29",
-    "@types/react": "^16.0.5",
+    "@types/mocha": ">= 2.2.41",
+    "@types/node": ">= 6.0.18",
+    "@types/power-assert": ">= 1.4.29",
+    "@types/react": ">= 16",
+    "@types/react-dom": ">= 16",
     "coveralls": "^2.11.15",
-    "mocha": "^3.2.0",
-    "nyc": "^10.0.0",
-    "power-assert": "^1.4.2",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "source-map-support": "^0.4.15",
-    "ts-node": "^3.0.4",
-    "tslint": "^5.7.0",
-    "tslint-react": "^3.2.0",
-    "typescript": "^2.3.2"
+    "mocha": ">= 3.2.0",
+    "nyc": ">= 10.0.0",
+    "power-assert": ">= 1.4.2",
+    "react": ">= 16",
+    "react-dom": ">= 16",
+    "source-map-support": ">= 0.4.15",
+    "ts-node": ">= 3.0.4",
+    "tslint": ">= 5.7.0",
+    "tslint-react": ">= 3.2.0",
+    "typescript": ">= 2.3.2"
   },
   "peerDependencies": {
-    "prop-types": "^15.5.10",
-    "react": "^15.4.1"
+    "prop-types": ">= 15",
+    "react": ">= 15",
+    "react-dom": ">= 15"
   },
   "nyc": {
     "lines": 90,

@@ -1,5 +1,5 @@
 import * as assert from 'power-assert';
-import { matchDescriptor, matchWidthDescriptor, matchPixelDescriptor } from 'src/matcher';
+import { matchDescriptor, matchWidthDescriptor, matchPixelDescriptor } from '../src/matcher';
 
 describe('Matcher', () => {
   const validWidths = [
