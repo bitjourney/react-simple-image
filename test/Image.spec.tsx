@@ -19,7 +19,7 @@ describe('Image', () => {
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
       assert(html.includes(' src="example-small.png" '));
-      assert(html.includes(' srcset="example-small.png 360w,example-middle.png 720w,example-large.png 1200w" '));
+      assert(html.includes(' srcSet="example-small.png 360w,example-middle.png 720w,example-large.png 1200w" '));
     });
 
     it('should render an expected html string without option', () => {
@@ -41,7 +41,7 @@ describe('Image', () => {
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
       assert(html.includes(' src="example-small.png" '));
-      assert(html.includes(' srcset="example-small.png 360w,example-middle.png 720w,example-large.png 1200w" '));
+      assert(html.includes(' srcSet="example-small.png 360w,example-middle.png 720w,example-large.png 1200w" '));
       assert(html.includes(' sizes="(max-width: 30em) 100vw,(max-width: 50em) 50vw,calc(33vw - 100px)"'));
     });
   });
@@ -62,7 +62,7 @@ describe('Image', () => {
       assert(html.includes(' alt="example" '));
       assert(html.includes(' class="additional-className" '));
       assert(html.includes(' src="example.png" '));
-      assert(html.includes(' srcset="example.png 1x,example@2x.png 2x" '));
+      assert(html.includes(' srcSet="example.png 1x,example@2x.png 2x" '));
     });
 
     it('should not render an expected html string with sizes', () => {
@@ -83,7 +83,7 @@ describe('Image', () => {
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
       assert(html.includes(' src="example.png" '));
-      assert(html.includes(' srcset="example.png 1x,example@2x.png 2x" '));
+      assert(html.includes(' srcSet="example.png 1x,example@2x.png 2x" '));
       assert(!html.includes(' sizes="(max-width: 30em) 100vw,(max-width: 50em) 50vw,calc(33vw - 100px)"'));
     });
   });
@@ -104,8 +104,8 @@ describe('Image', () => {
       assert(html.startsWith('<img'));
       assert(html.includes(' alt="example" '));
       assert(html.includes(' src="example-small.png" '));
-      assert(html.includes(' srcset="example.png 1x,example@2x.png 2x" '));
-      assert(!html.includes(' srcset="example-small.png 360w,example-middle.png 720w" '));
+      assert(html.includes(' srcSet="example.png 1x,example@2x.png 2x" '));
+      assert(!html.includes(' srcSet="example-small.png 360w,example-middle.png 720w" '));
     });
   });
 
