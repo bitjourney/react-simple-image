@@ -9,11 +9,9 @@
     "test": "NODE_ENV=test mocha",
     "test:coverage": "NODE_ENV=test nyc mocha",
     "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | $(npm bin)/coveralls",
-    "story:start": "start-storybook -p 9001 -c .storybook",
-    "story:build": "build-storybook -c .storybook -o build",
     "prepublish": "npm run build",
-    "lint": "tslint --type-check --project tsconfig.json",
-    "lint:fix": "tslint --fix --type-check --project tsconfig.json"
+    "lint": "tslint --project tsconfig.json",
+    "lint:fix": "tslint --fix --project tsconfig.json"
   },
   "engines": {
     "node": ">= 6"
