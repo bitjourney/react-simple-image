@@ -126,4 +126,17 @@ describe('Image', () => {
       assert(html.startsWith('<img'));
     });
   });
+
+  describe('with empty alt', () => {
+    it('should throw error into console', () => {
+      const props = {
+        src: 'example.png',
+        srcSet: {},
+      };
+      const html = renderToString(createElement(Image, props));
+      assert(html.includes('alt=""'));
+      assert(!html.includes('srcSet'));
+      assert(!html.includes('sizes'));
+    });
+  });
 });

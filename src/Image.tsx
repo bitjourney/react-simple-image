@@ -8,8 +8,8 @@ export interface Size {
 }
 
 export interface Props {
-  alt: string;
   src: string;
+  alt?: string;
   className?: string;
   srcSet?: any;
   sizes?: Size[];
@@ -17,9 +17,10 @@ export interface Props {
 
 export default class Image extends React.PureComponent<Props> {
   static readonly propTypes = {
-    alt: PropTypes.string.isRequired,
-    className: PropTypes.string,
     src: PropTypes.string.isRequired,
+
+    alt: PropTypes.string,
+    className: PropTypes.string,
     srcSet: PropTypes.objectOf((props, propName, componentName) => {
       if (!matchDescriptor(propName)) {
         return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
@@ -31,6 +32,10 @@ export default class Image extends React.PureComponent<Props> {
       mediaCondition: PropTypes.string,
     })),
   };
+
+  static readonly defaultProps = {
+    alt: '', // it indicates this image is not a key part of the content
+  }
 
   readonly widthDescriptorOnly: boolean;
 
@@ -45,7 +50,7 @@ export default class Image extends React.PureComponent<Props> {
     return Object.keys(this.props.srcSet)
       .filter(matcher)
       .map(descriptor => `${this.props.srcSet[descriptor]} ${descriptor}`)
-      .join(',');
+      .join(',') || undefined;
   }
 
   buildSizes() {
@@ -55,9 +60,9 @@ export default class Image extends React.PureComponent<Props> {
           return `${size.mediaCondition} ${size.size}`;
         }
         return `${size.size}`;
-      }).join(',');
+      }).join(',') || undefined;
     }
-    return '';
+    return undefined;
   }
 
   render() {
