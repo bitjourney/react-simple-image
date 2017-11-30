@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "lib": [
-            "es2015",
+            "es2017",
             "dom"
         ],
         "declaration": true,
@@ -9,9 +9,9 @@
         "moduleResolution": "node",
         "noEmitOnError": true,
         "outDir": "lib/",
-        "removeComments": true,
         "sourceMap": true,
-        "strictNullChecks": true,
+        "strict": true,
+        "noImplicitAny": false,
         "target": "es5",
         "jsx": "react"
     },

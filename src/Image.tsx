@@ -15,38 +15,33 @@ export interface Props {
   sizes?: Size[];
 }
 
-export interface State {
-  widthDescriptorOnly: boolean;
-}
+export default class Image extends React.PureComponent<Props> {
+  static readonly propTypes = {
+    alt: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    src: PropTypes.string.isRequired,
+    srcSet: PropTypes.objectOf((props, propName, componentName) => {
+      if (!matchDescriptor(propName)) {
+        return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
+      }
+      return null;
+    }),
+    sizes: PropTypes.arrayOf(PropTypes.shape({
+      size: PropTypes.string.isRequired,
+      mediaCondition: PropTypes.string,
+    })),
+  };
 
-export default class Image extends React.Component<Props, State> {
-  static get propTypes() {
-    return {
-      alt: PropTypes.string.isRequired,
-      className: PropTypes.string,
-      src: PropTypes.string.isRequired,
-      srcSet: PropTypes.objectOf((props, propName, componentName) => {
-        if (!matchDescriptor(propName)) {
-          return new Error(`Invalid prop '${propName}' supplied to '${componentName}'. Validation failed.`);
-        }
-        return null;
-      }),
-      sizes: PropTypes.arrayOf(PropTypes.shape({
-        size: PropTypes.string.isRequired,
-        mediaCondition: PropTypes.string,
-      })),
-    };
-  }
+  readonly widthDescriptorOnly: boolean;
 
   constructor(props) {
     super(props);
-    this.state = {
-      widthDescriptorOnly: Object.keys(this.props.srcSet).every((descriptor) => matchWidthDescriptor(descriptor)),
-    };
+
+    this.widthDescriptorOnly = Object.keys(props.srcSet).every((descriptor) => matchWidthDescriptor(descriptor));
   }
 
   buildSrcSet() {
-    const matcher = this.state.widthDescriptorOnly ? matchWidthDescriptor : matchPixelDescriptor;
+    const matcher = this.widthDescriptorOnly ? matchWidthDescriptor : matchPixelDescriptor;
     return Object.keys(this.props.srcSet)
       .filter(matcher)
       .map(descriptor => `${this.props.srcSet[descriptor]} ${descriptor}`)
@@ -54,7 +49,7 @@ export default class Image extends React.Component<Props, State> {
   }
 
   buildSizes() {
-    if (this.props.sizes && this.state.widthDescriptorOnly) {
+    if (this.props.sizes && this.widthDescriptorOnly) {
       return this.props.sizes.map((size) => {
         if (size.mediaCondition) {
           return `${size.mediaCondition} ${size.size}`;
@@ -73,7 +68,7 @@ export default class Image extends React.Component<Props, State> {
         src={this.props.src}
         srcSet={this.buildSrcSet()}
         sizes={this.buildSizes()}
-        />
+      />
     );
   }
 }
