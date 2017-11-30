@@ -35,7 +35,7 @@ export default class Image extends React.PureComponent<Props> {
 
   static readonly defaultProps = {
     alt: '', // it indicates this image is not a key part of the content
-  }
+  };
 
   readonly widthDescriptorOnly: boolean;
 
