@@ -29,7 +29,11 @@
   "keywords": [
     "HTML5"
   ],
-  "author": "Bit Jouryne, Inc.",
+  "author": "Bit Journey, Inc. (https://bitjourney.com/)",
+  "contributors": [
+    "gfx",
+    "kenju"
+  ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/bitjourney/react-simple-image/issues"
