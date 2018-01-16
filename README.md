@@ -44,17 +44,17 @@ For more information, please reach out for:
 <Image
   alt='example'
   className='additional-className'
-  src='example-small.png',
+  src='example-small.png'
   srcSet={{
     '360w': 'example-small.png',
     '720w': 'example-middle.png',
     '1200w': 'example-large.png',
-  }},
+  }}
   sizes={[
     {size: '100vw', mediaCondition: '(max-width: 30em)'},
     {size: '50vw', mediaCondition: '(max-width: 50em)'},
     {size: 'calc(33vw - 100px)'},
-  ]},
+  ]}
   />
 ```
 
