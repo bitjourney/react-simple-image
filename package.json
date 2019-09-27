@@ -43,7 +43,7 @@
     "@types/power-assert": ">= 1.4.29",
     "@types/react": ">= 16",
     "@types/react-dom": ">= 16",
-    "coveralls": "^2.11.15",
+    "coveralls": "^3.0.6",
     "mocha": ">= 3.2.0",
     "nyc": ">= 10.0.0",
     "power-assert": ">= 1.4.2",
