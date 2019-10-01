@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:6.10.0
+      - image: node:10
 
     environment:
       NODE_ENV: test
@@ -22,8 +22,14 @@ jobs:
 
       - run: npm install --no-emoji --no-progress
       - run: npm run lint
-      - run: npm run test:coverage
-      - run: npm run coveralls
+      - run: |
+          if [ -n "$COVERALLS_REPO_TOKEN" ] ; then
+            npm run test:coverage
+            npm run coveralls
+          else
+            # No coverage for pull request from fork repository
+            npm run test
+          fi
 
       - save_cache:
           name: Save Cache for Packages
