@@ -44,18 +44,18 @@ For more information, please reach out for:
 <Image
   alt='example'
   className='additional-className'
-  src='example-small.png',
+  src='example-small.png'
   srcSet={{
     '360w': 'example-small.png',
     '720w': 'example-middle.png',
     '1200w': 'example-large.png',
-  }},
+  }}
   sizes={[
     {size: '100vw', mediaCondition: '(max-width: 30em)'},
     {size: '50vw', mediaCondition: '(max-width: 50em)'},
     {size: 'calc(33vw - 100px)'},
-  ]},
-  />
+  ]}
+/>
 ```
 
 ## Example
@@ -67,18 +67,18 @@ For more information, please reach out for:
 ```jsx
 <Image
   alt='example'
-  src='example-small.png',
+  src='example-small.png'
   srcSet={{
     '360w': 'example-small.png',
     '720w': 'example-middle.png',
     '1200w': 'example-large.png',
-  }},
+  }}
   sizes={[
     {size: '100vw', mediaCondition: '(max-width: 30em)'},
     {size: '50vw', mediaCondition: '(max-width: 50em)'},
     {size: 'calc(33vw - 100px)'},
-  ]},
-  />
+  ]}
+/>
 ```
 
 #### Rendered HTML
@@ -91,7 +91,8 @@ For more information, please reach out for:
   sizes="(max-width: 30em) 100vw,(max-width: 50em) 50vw,calc(33vw - 100px)"
   data-reactroot=""
   data-reactid="1"
-  data-react-checksum="1197296813"/>
+  data-react-checksum="1197296813"
+/>
 ```
 
 ### pixel descriptor
@@ -102,12 +103,12 @@ For more information, please reach out for:
 <Image
   alt='example'
   className='additional-className'
-  src='example.png',
+  src='example.png'
   srcSet={{
     '1x': 'example.png',
     '2x': 'example@2x.png',
-  }},
-  />
+  }}
+/>
 ```
 
 #### Rendered HTML
@@ -120,7 +121,8 @@ For more information, please reach out for:
   srcset="example.png 1x,example@2x.png 2x"
   data-reactroot=""
   data-reactid="1"
-  data-react-checksum="1897738717"/>
+  data-react-checksum="1897738717"
+/>
 ```
 
 ## License
