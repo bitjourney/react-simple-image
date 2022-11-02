@@ -1,0 +1,21 @@
+name: ReviewDog
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  detect-secrets:
+    runs-on: ubuntu-latest
+    if: ${{ !contains(github.head_ref, 'dependabot') }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: detect-secrets
+        uses: reviewdog/action-detect-secrets@master
+        with:
+          reporter: github-pr-review
+          detect_secrets_flags: --all-files --force-use-all-plugins --word-list .github/workflows/detect-secrets-wordlist.txt
